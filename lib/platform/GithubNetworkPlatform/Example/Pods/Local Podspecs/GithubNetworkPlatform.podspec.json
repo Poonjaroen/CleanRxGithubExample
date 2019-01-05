@@ -1,0 +1,30 @@
+{
+  "name": "GithubNetworkPlatform",
+  "version": "0.1.0",
+  "summary": "A short description of GithubNetworkPlatform.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/myste1tainn/GithubNetworkPlatform",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "myste1tainn": "a.keereena@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/myste1tainn/GithubNetworkPlatform.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GithubNetworkPlatform/Classes/**/*",
+  "dependencies": {
+    "GithubDomain": [
+      "~> 0.1.0"
+    ],
+    "GithubNetwork": [
+      "~> 0.1.0"
+    ]
+  }
+}

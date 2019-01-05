@@ -1,0 +1,6 @@
+framework module GithubNetwork {
+  umbrella header "GithubNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
