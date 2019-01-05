@@ -8,7 +8,7 @@ import GithubNetwork
 import RxSwift
 import Moya
 
-final class LoginUseCase: GithubDomain.LoginUseCase {
+final class LoginUseCase: GithubDomain.AuthenticationUseCase {
   let network: Provider
   
   init(network: Provider) {

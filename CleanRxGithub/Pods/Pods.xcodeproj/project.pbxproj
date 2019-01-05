@@ -324,7 +324,7 @@
 		C8B9C46DE5CE06FB25326ECA377A673D /* UIBarButtonItem+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E92C3E15F5455692F0550498DDA029 /* UIBarButtonItem+Rx.swift */; };
 		C8E2B6C2ADF0E4CC6A0AE664F2CE93B9 /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49579E88060640CE416ED790D43201 /* AccessTokenPlugin.swift */; };
 		C8FF87A5F481A5BA5148B87A72380816 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF8DD294989EE2AF087137B7C720460 /* Alamofire.framework */; };
-		CA27D20E030BF40019A92833E1943C82 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5B08795A3C292555E830EE9705B8E /* LoginUseCase.swift */; };
+		CA27D20E030BF40019A92833E1943C82 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5B08795A3C292555E830EE9705B8E /* AuthenticationUseCase.swift */; };
 		CA6AB7101933EBE446D2EB78BEECAF87 /* RxPickerViewDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4777640F9AEE6A8CCFA804933D9F61 /* RxPickerViewDataSourceProxy.swift */; };
 		CAE61AA8A24912A0D3255957509523A0 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E90CC5C63C70B93D52FFB4CDEE2FC74 /* StartWith.swift */; };
 		CB559F8386724837CCB44AA1A96A64F8 /* ObservableConvertibleType+Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF811C826E79B1AFE685E6BEE5ADDA6 /* ObservableConvertibleType+Driver.swift */; };
@@ -777,7 +777,7 @@
 		5CF8DD294989EE2AF087137B7C720460 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1C39126AB5AD0AFF79168F56D79139 /* UINavigationItem+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationItem+Rx.swift"; path = "RxCocoa/iOS/UINavigationItem+Rx.swift"; sourceTree = "<group>"; };
 		5DC5808DFD8455861085E8307792AB1F /* SharedSequence+Operators+arity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SharedSequence+Operators+arity.swift"; path = "RxCocoa/Traits/SharedSequence/SharedSequence+Operators+arity.swift"; sourceTree = "<group>"; };
-		5DF5B08795A3C292555E830EE9705B8E /* LoginUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		5DF5B08795A3C292555E830EE9705B8E /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		5E630FF26870F1159A197F525CFEB908 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Event.swift; path = RxSwift/Event.swift; sourceTree = "<group>"; };
 		5EB21C67DF33F7BBA3C6E9FAE62CDBF9 /* Pods-CleanRxGithub-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CleanRxGithub-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5F10D087109A3CD81EC7C068ED7B0EAF /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchBar+Rx.swift"; path = "RxCocoa/iOS/UISearchBar+Rx.swift"; sourceTree = "<group>"; };
@@ -1582,7 +1582,7 @@
 		9DF024896F97EB0A955FBB6492B2B1C1 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				5DF5B08795A3C292555E830EE9705B8E /* LoginUseCase.swift */,
+				5DF5B08795A3C292555E830EE9705B8E /* AuthenticationUseCase.swift */,
 				7A3B87268555816F72EA33D308A81627 /* UseCaseProvider.swift */,
 			);
 			name = "Use Cases";
@@ -2302,7 +2302,7 @@
 				921211D4A31AEED84B604B531B405296 /* APIError.swift in Sources */,
 				5AF170BA8D9984CAF0244200D99ACF82 /* Credential.swift in Sources */,
 				EBF71DA05FDB7A9566F319EDBE488D19 /* GithubDomain-dummy.m in Sources */,
-				CA27D20E030BF40019A92833E1943C82 /* LoginUseCase.swift in Sources */,
+				CA27D20E030BF40019A92833E1943C82 /* AuthenticationUseCase.swift in Sources */,
 				EAEA4F730CDD1593B4A910AE44C5B083 /* NetworkError.swift in Sources */,
 				BD0DE39836CBF5AF9E00DC408D6AD0B9 /* UseCaseProvider.swift in Sources */,
 				25499EB7872F01AB453BAF87 /* UserSession.swift in Sources */,

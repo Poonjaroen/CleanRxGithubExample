@@ -10,7 +10,7 @@ public final class UseCaseProvider: GithubDomain.UseCaseProvider {
   
   public init() {}
   
-  public func makeLoginUseCase() -> GithubDomain.LoginUseCase {
+  public func makeLoginUseCase() -> GithubDomain.AuthenticationUseCase {
     return LoginUseCase(network: Provider())
   }
 }
