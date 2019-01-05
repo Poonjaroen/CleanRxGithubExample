@@ -1,10 +1,18 @@
 PODS:
+  - Alamofire (4.8.0)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - GithubNetwork (0.1.0)
+  - GithubNetwork (0.1.0):
+    - Moya/RxSwift (~> 12.0)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - Nimble (7.0.3)
   - Nimble-Snapshots (6.3.0):
     - Nimble-Snapshots/Core (= 6.3.0)
@@ -12,6 +20,10 @@ PODS:
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - Quick (1.2.0)
+  - Result (4.1.0)
+  - RxAtomic (4.4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -22,21 +34,31 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - FBSnapshotTestCase
+    - Moya
     - Nimble
     - Nimble-Snapshots
     - Quick
+    - Result
+    - RxAtomic
+    - RxSwift
 
 EXTERNAL SOURCES:
   GithubNetwork:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  GithubNetwork: 49d80efaa759b2a739153ae33dd1e992f8063164
+  GithubNetwork: 3d003fd8b24bb0dd6628e4f632789a2f22b0e65f
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
 PODFILE CHECKSUM: a9df29bd7a8dbe0e9f3113c5d1ec384773a7082d
 

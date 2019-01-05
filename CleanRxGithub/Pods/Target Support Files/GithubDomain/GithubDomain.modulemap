@@ -1,0 +1,6 @@
+framework module GithubDomain {
+  umbrella header "GithubDomain-umbrella.h"
+
+  export *
+  module * { export * }
+}
