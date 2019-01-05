@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import GithubNetworkPlatform
+import GithubDomain
 
 class LoginViewController: UIViewController {
   
@@ -33,9 +33,8 @@ class LoginViewController: UIViewController {
   private func ensureViewModel() {
     guard viewModel == nil else { return }
     let stb = UIStoryboard(name: "Main", bundle: nil)
-    let provider = UseCaseProvider()
-    let useCase = provider.makeLoginUseCase()
-    let navigator = DefaultLoginNavigator(provider: provider, sourceViewController: self, storyboard: stb)
+    let useCase = AppDelegate.useCaseProvider.makeLoginUseCase()
+    let navigator = DefaultLoginNavigator(provider: AppDelegate.useCaseProvider, sourceViewController: self, storyboard: stb)
     viewModel = ViewModel(useCase: useCase, navigator: navigator)
   }
   
@@ -49,7 +48,6 @@ class LoginViewController: UIViewController {
                    password: password.asDriverOnErrorJustComplete(),
                    loginTrigger: trigger.debug("in:trigger").asDriverOnErrorJustComplete())
     )
-    
     
     output.loggedIn.drive().disposed(by: disposeBag)
     

@@ -4,9 +4,10 @@
 
 import Foundation
 
-struct NetworkError: LocalizedError {
+public struct NetworkError: LocalizedError {
   public var errorDescription: String? {
-    self.localizedDescription
     return "Network failed"
   }
+  
+  public init() {}
 }

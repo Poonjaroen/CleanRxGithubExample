@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import GithubDomain
 import Moya
 
 extension Response {

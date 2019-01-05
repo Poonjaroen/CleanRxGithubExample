@@ -10,5 +10,10 @@ public struct APIError: Error {
   public var message: String {
     return body.flatMap { String(data: $0, encoding: .utf8) } ?? ""
   }
+  
+  public init(code: Int, body: Data?) {
+    self.code = code
+    self.body = body
+  }
 }
 
