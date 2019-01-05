@@ -150,7 +150,7 @@
 		5A0F0B47BA3E66EBC6E080490D4360B3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391385F1B48D76F569B191002FB5C31D /* UICollectionView+Rx.swift */; };
 		5A50AA27AB3F7DB1E9C6CEAD25F1C5D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448B8DA2864873C0E1471586DCEC75C7 /* Foundation.framework */; };
 		5ADA26AE3A66D6125600A5FBAA9C1BAE /* Completable+AndThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9166633FD215B1AA77840286BD700E /* Completable+AndThen.swift */; };
-		5AF170BA8D9984CAF0244200D99ACF82 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4239478CB4B6A6550DA24B3065772C6D /* Credential.swift */; };
+		5AF170BA8D9984CAF0244200D99ACF82 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4239478CB4B6A6550DA24B3065772C6D /* LoginRequest.swift */; };
 		5B3D08F5BA1587F8141AA892D5CDA800 /* AsMaybe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8CDCEAA5DE630F235905559775D8B /* AsMaybe.swift */; };
 		5B544881A4D361218F1CDD9BEA61AF2C /* _RX.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6188C97ECA4CE444AC4F1D75F73FF4 /* _RX.m */; };
 		5B92B2E870669EF9855C5D16C1A448D7 /* UIGestureRecognizer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAF025292550B670436D020A96E396 /* UIGestureRecognizer+Rx.swift */; };
@@ -724,7 +724,7 @@
 		4075E23CD09566563C5E4FAE77DABC54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		413A10BAA4D8F4D8C4070EFD4311E8CE /* ConnectableObservableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectableObservableType.swift; path = RxSwift/ConnectableObservableType.swift; sourceTree = "<group>"; };
 		41A52AAD178FB87D83088703E4C8A41F /* SynchronizedUnsubscribeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedUnsubscribeType.swift; path = RxSwift/Concurrency/SynchronizedUnsubscribeType.swift; sourceTree = "<group>"; };
-		4239478CB4B6A6550DA24B3065772C6D /* Credential.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		4239478CB4B6A6550DA24B3065772C6D /* LoginRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		42F0A279DD9322E51CFFDF71D0D2B4BB /* NSView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSView+Rx.swift"; path = "RxCocoa/macOS/NSView+Rx.swift"; sourceTree = "<group>"; };
 		43BEA55FC164FF4B4077F87844783A5C /* UIApplication+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Rx.swift"; path = "RxCocoa/iOS/UIApplication+Rx.swift"; sourceTree = "<group>"; };
 		4470AE6264F10B08C5FF46EF65D08AE2 /* CombineLatest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombineLatest.swift; path = RxSwift/Observables/CombineLatest.swift; sourceTree = "<group>"; };
@@ -1876,7 +1876,7 @@
 		FD57C719FE090FDEB9DDA2FF9F639CC8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				4239478CB4B6A6550DA24B3065772C6D /* Credential.swift */,
+				4239478CB4B6A6550DA24B3065772C6D /* LoginRequest.swift */,
 				A47B4E88A0E4A781564F23FEF9D1A9B4 /* Errors */,
 				254994D370BC6F6458A1D2B5 /* UserSession.swift */,
 				2549932C4435A973E9858E22 /* OAuth.swift */,
@@ -2303,7 +2303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				921211D4A31AEED84B604B531B405296 /* APIError.swift in Sources */,
-				5AF170BA8D9984CAF0244200D99ACF82 /* Credential.swift in Sources */,
+				5AF170BA8D9984CAF0244200D99ACF82 /* LoginRequest.swift in Sources */,
 				EBF71DA05FDB7A9566F319EDBE488D19 /* GithubDomain-dummy.m in Sources */,
 				CA27D20E030BF40019A92833E1943C82 /* AuthenticationUseCase.swift in Sources */,
 				EAEA4F730CDD1593B4A910AE44C5B083 /* NetworkError.swift in Sources */,

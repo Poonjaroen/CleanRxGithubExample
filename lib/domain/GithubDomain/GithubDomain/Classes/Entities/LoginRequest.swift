@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Credential {
+public struct LoginRequest {
   public var username: String
   public var password: String
 }
