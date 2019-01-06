@@ -25,6 +25,9 @@
     ],
     "GithubNetwork": [
       "~> 0.1.0"
+    ],
+    "ObjectMapper": [
+      "~> 3.4"
     ]
   }
 }
