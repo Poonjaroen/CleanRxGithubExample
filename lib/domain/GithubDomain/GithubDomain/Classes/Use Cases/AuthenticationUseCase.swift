@@ -6,7 +6,10 @@ import Foundation
 import RxSwift
 
 public protocol AuthenticationUseCase {
-  func login(username: String, password: String) -> Single<UserSession>
+  func login(username: String,
+             password: String,
+             scopes: [String],
+             note: String?) -> Single<UserSession>
   
   func logout() -> Single<Void>
   
