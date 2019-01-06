@@ -1,19 +1,22 @@
 //
-// Created by Arnon Keereena on 23/12/2018 AD.
+// Created by Arnon Keereena on 6/1/2019 AD.
 //
 
 import Foundation
-import GithubDomain
+import RxSwift
 import Moya
+import ObjectMapper
+import GithubDomain
 
-extension Response {
-  var error: Error? {
-    if statusCode > 299 && statusCode < 500 {
-      return APIError(code: statusCode, body: data)
-    } else if statusCode > 499 {
-      return NetworkError()
-    } else {
-      return nil
+extension Single where Element: Response {
+  func mapToModel<T: BaseMappable>(_ type: T.Type) -> Single<T> {
+    return map {
+      guard let model = T.init(JSONString: try $0.jsonString()) else { throw NetworkError() }
+      return model
     }
+  }
+  
+  func mapToModels<T: BaseMappable>(_ type: T.Type) -> Single<[T]> {
+    return map { Mapper<T>().mapArray(JSONString: try $0.jsonString()) }
   }
 }

@@ -19,19 +19,14 @@ final class LoginUseCase: GithubDomain.AuthenticationUseCase {
              password: String,
              scopes: [String] = ["public_repo"],
              note: String? = nil) -> Single<UserSession> {
-    let  request = LoginRequest(username: username,
-                                password: password,
-                                scopes: scopes,
-                                note: note)
+    let request = LoginRequest(username: username,
+                               password: password,
+                               scopes: scopes,
+                               note: note)
     return network.rx
       .request(.login(request: request))
-      .map {
-        if let error = $0.error {
-          throw error
-        } else {
-          return ()
-        }
-      }
+      .mapToModel(LoginResponse.self)
+      .map(UserSession.init(loginResponse:))
   }
   
   func logout() -> Single<Void> {
