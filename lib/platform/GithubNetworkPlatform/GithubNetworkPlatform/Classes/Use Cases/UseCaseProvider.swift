@@ -11,6 +11,6 @@ public final class UseCaseProvider: GithubDomain.UseCaseProvider {
   public init() {}
   
   public func makeLoginUseCase() -> GithubDomain.AuthenticationUseCase {
-    return LoginUseCase(network: Provider())
+    return AuthenticationUseCase(network: Provider())
   }
 }

@@ -8,8 +8,10 @@ import GithubNetwork
 import RxSwift
 import Moya
 
-final class LoginUseCase: GithubDomain.AuthenticationUseCase {
+final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   let network: Provider
+  
+  static var currentUserSession: UserSession? = nil
   
   init(network: Provider) {
     self.network = network
@@ -27,10 +29,12 @@ final class LoginUseCase: GithubDomain.AuthenticationUseCase {
       .request(.login(request: request))
       .mapToModel(LoginResponse.self)
       .map(UserSession.init(loginResponse:))
+      .do(onSuccess: { AuthenticationUseCase.currentUserSession = $0 })
   }
   
   func logout() -> Single<Void> {
-  
+    AuthenticationUseCase.currentUserSession = nil
+    return .just(())
   }
   
   func recoverUserSession() -> Single<UserSession> {
