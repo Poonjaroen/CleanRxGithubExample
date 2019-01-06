@@ -18,7 +18,7 @@ extension LoginViewController {
     }
     
     struct Output {
-      var loggedIn: Driver<Void>
+      var loggedIn: Driver<UserSession>
       var loggingIn: Driver<Bool>
       var error: Driver<Error>
     }
