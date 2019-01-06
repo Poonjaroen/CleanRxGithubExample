@@ -162,7 +162,7 @@
 		65769DF4A7AFD12E0F08F4CEAC5BC15A /* RxMutableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D411736E9F6D22062F7CA29F66F77D /* RxMutableBox.swift */; };
 		6728B78ADCD3FDECB8F535AF1F5573F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448B8DA2864873C0E1471586DCEC75C7 /* Foundation.framework */; };
 		6766FFC6E689C669CE1F9838C9EE2FAC /* UIProgressView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C5370A021867CC16B991C684DC98B /* UIProgressView+Rx.swift */; };
-		67699213E1D4E731F6070655750FCB9A /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300DB766F716EFF0EA23F0621924E28D /* LoginUseCase.swift */; };
+		67699213E1D4E731F6070655750FCB9A /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300DB766F716EFF0EA23F0621924E28D /* AuthenticationUseCase.swift */; };
 		6784C3FC42568820D9E4F4EB2734FA22 /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23DD78368A203FF3F0ED5876E9CE72 /* Binder.swift */; };
 		681D85880BE65792250D6047B04C1E15 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF8DD294989EE2AF087137B7C720460 /* Alamofire.framework */; };
 		68E433008FF9779C69C37BD06C351633 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F964C63A11DADC6565BC02B9E62A255 /* Do.swift */; };
@@ -695,7 +695,7 @@
 		2F459322FFD9B877025862FC9EC7F9B8 /* InfiniteSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InfiniteSequence.swift; path = Platform/DataStructures/InfiniteSequence.swift; sourceTree = "<group>"; };
 		2F83D4F8262FFDAAEA009C69922BE464 /* NSObject+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx.swift"; path = "RxCocoa/Foundation/NSObject+Rx.swift"; sourceTree = "<group>"; };
 		2F933D289ABF1B60DADC65D43CED8D9E /* Single+Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Single+Response.swift"; path = "Sources/RxMoya/Single+Response.swift"; sourceTree = "<group>"; };
-		300DB766F716EFF0EA23F0621924E28D /* LoginUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		300DB766F716EFF0EA23F0621924E28D /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		3087EC373CC19B84F3E6FCC63B4B73A7 /* SubjectType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubjectType.swift; path = RxSwift/Subjects/SubjectType.swift; sourceTree = "<group>"; };
 		31437C1B133326E2935DC1DC7D016121 /* Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Window.swift; path = RxSwift/Observables/Window.swift; sourceTree = "<group>"; };
 		31B19BF40CF0FC1EBA1A671091E2D9D3 /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = RxSwift/Observables/Map.swift; sourceTree = "<group>"; };
@@ -1340,7 +1340,7 @@
 		11851426DB0EAE863E7BA63419D60477 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				300DB766F716EFF0EA23F0621924E28D /* LoginUseCase.swift */,
+				300DB766F716EFF0EA23F0621924E28D /* AuthenticationUseCase.swift */,
 				A11C8AE0016EC7CD9B530DACB36F7C28 /* UseCaseProvider.swift */,
 			);
 			name = "Use Cases";
@@ -2664,7 +2664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C8FCCB80D6802E28FBCF455823770F2 /* GithubNetworkPlatform-dummy.m in Sources */,
-				67699213E1D4E731F6070655750FCB9A /* LoginUseCase.swift in Sources */,
+				67699213E1D4E731F6070655750FCB9A /* AuthenticationUseCase.swift in Sources */,
 				6F62D6A4942B24DE6B07D37ABFE0F6A1 /* Response+Transform.swift in Sources */,
 				890B302D37024D5D2758DEAD199EEA61 /* UseCaseProvider.swift in Sources */,
 			);
