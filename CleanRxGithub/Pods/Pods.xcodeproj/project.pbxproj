@@ -60,6 +60,7 @@
 		2227947BC860ED6BFBEFA25E7CF4E0B0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B55275E5726D27BE6D91035577A1241 /* Errors.swift */; };
 		2325641BCEF8F4D25340E76796177C79 /* ScheduledItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166864717AA787826C109176AD05BEE /* ScheduledItemType.swift */; };
 		23F560EF3042B0A3ED52172A5B6050B8 /* ObserveOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3682AFA8B8F962B1EEE1C481399A64D6 /* ObserveOn.swift */; };
+		25499AE8DCAA86EDBF7A4EDF /* LoginRequest.Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549907AEE8137E11CC63A12 /* LoginRequest.Body.swift */; };
 		260FC1AFA4ACD0BB066A49397D2FD5F6 /* NSView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0A279DD9322E51CFFDF71D0D2B4BB /* NSView+Rx.swift */; };
 		2644A68613B490AC04C3EC5AD9635A00 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E16C37793D7B70BD505823CD326F68 /* ResultProtocol.swift */; };
 		267FBD9931BBD90C9AFCBF485DC89DCC /* RxCocoa-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 732FACADFE199CE7909800BE551195ED /* RxCocoa-dummy.m */; };
@@ -675,6 +676,7 @@
 		246ADA882F50AD54AB6F37B22F306977 /* First.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = First.swift; path = RxSwift/Observables/First.swift; sourceTree = "<group>"; };
 		24D5F939E59956BC16FA9272551B6088 /* Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = RxSwift/Observables/Delay.swift; sourceTree = "<group>"; };
 		253C3DEB9ABFB138B123CE5CF9C4A9CD /* ToArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToArray.swift; path = RxSwift/Observables/ToArray.swift; sourceTree = "<group>"; };
+		2549907AEE8137E11CC63A12 /* LoginRequest.Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRequest.Body.swift; path = GithubNetwork/Classes/LoginRequest.Body.swift; sourceTree = "<group>"; };
 		266B88E3BF2522552147E3140D68F5BE /* Observable+Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Response.swift"; path = "Sources/RxMoya/Observable+Response.swift"; sourceTree = "<group>"; };
 		268EAAE80A21395A6CB14AB4900F38DC /* Optional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Optional.swift; path = RxSwift/Observables/Optional.swift; sourceTree = "<group>"; };
 		26F7CB880C56CDBC6B86D1BC45B9A55A /* RxTabBarDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTabBarDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTabBarDelegateProxy.swift; sourceTree = "<group>"; };
@@ -1673,6 +1675,7 @@
 				01881793CA9FD9F5CF796740C9E11170 /* Target.swift */,
 				208D5D4F4050945FB327CEF1F6922A14 /* Pod */,
 				4FE38314B3E08E7EFA39FE22FDFDE67B /* Support Files */,
+				2549907AEE8137E11CC63A12 /* LoginRequest.Body.swift */,
 			);
 			name = GithubNetwork;
 			path = ../../lib/utility/GithubNetwork;
@@ -2366,6 +2369,7 @@
 				F58CDD2D093203269C37E27DF087B13F /* LoginResponse.swift in Sources */,
 				CDA527FDC6195928C4056351C67C62C6 /* Provider.swift in Sources */,
 				BD4B7E1A4FA1A381A6C16FEA2387D0DF /* Target.swift in Sources */,
+				25499AE8DCAA86EDBF7A4EDF /* LoginRequest.Body.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
