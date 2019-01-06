@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
   private func ensureViewModel() {
     guard viewModel == nil else { return }
     let stb = UIStoryboard(name: "Main", bundle: nil)
-    let useCase = AppDelegate.useCaseProvider.makeLoginUseCase()
+    let useCase = AppDelegate.useCaseProvider.makeAuthenticationUseCase()
     let navigator = DefaultLoginNavigator(provider: AppDelegate.useCaseProvider, sourceViewController: self, storyboard: stb)
     viewModel = ViewModel(useCase: useCase, navigator: navigator)
   }

@@ -23,10 +23,10 @@ extension LoginViewController {
       var error: Driver<Error>
     }
     
-    var useCase: LoginUseCase
+    var useCase: AuthenticationUseCase
     var navigator: LoginNavigator
     
-    init(useCase: LoginUseCase,
+    init(useCase: AuthenticationUseCase,
          navigator: LoginNavigator) {
       self.useCase = useCase
       self.navigator = navigator
@@ -39,7 +39,7 @@ extension LoginViewController {
         .combineLatest(input.username, input.password)
         .flatMapLatest { tuple in input.loginTrigger.map { (tuple.0, tuple.1) } }
         .flatMapLatest {
-          self.useCase.login(username: $0.0, password: $0.1)
+          self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: nil)
                       .trackActivity(loggingIn)
                       .trackError(error)
                       .observeOn(ConcurrentMainScheduler.instance)

@@ -5,5 +5,5 @@
 import Foundation
 
 public protocol UseCaseProvider {
-  func makeLoginUseCase() -> AuthenticationUseCase
+  func makeAuthenticationUseCase() -> AuthenticationUseCase
 }

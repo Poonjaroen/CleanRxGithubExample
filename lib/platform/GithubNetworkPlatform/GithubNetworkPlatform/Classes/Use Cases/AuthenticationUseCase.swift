@@ -8,6 +8,12 @@ import GithubNetwork
 import RxSwift
 import Moya
 
+extension Single {
+  static func justOrEmpty(_ element: Element?) -> Single<Element> {
+    return element.flatMap { Single.just($0) } ?? Observable.empty().asSingle()
+  }
+}
+
 final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   let network: Provider
   
@@ -27,7 +33,7 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
                                note: note)
     return network.rx
       .request(.login(request: request))
-      .mapToModel(LoginResponse.self)
+      .flatMap { Single.justOrEmpty($0.toModel(LoginResponse.self)) }
       .map(UserSession.init(loginResponse:))
       .do(onSuccess: { AuthenticationUseCase.currentUserSession = $0 })
   }
@@ -37,8 +43,8 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
     return .just(())
   }
   
-  func recoverUserSession() -> Single<UserSession> {
-  
+  func recoverUserSession() -> Single<UserSession?> {
+    return .just(AuthenticationUseCase.currentUserSession)
   }
 }
 

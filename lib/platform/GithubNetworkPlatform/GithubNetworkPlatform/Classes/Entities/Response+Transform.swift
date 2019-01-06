@@ -8,15 +8,22 @@ import Moya
 import ObjectMapper
 import GithubDomain
 
-extension Single where Element: Response {
-  func mapToModel<T: BaseMappable>(_ type: T.Type) -> Single<T> {
-    return map {
-      guard let model = T.init(JSONString: try $0.jsonString()) else { throw NetworkError() }
-      return model
+extension Response {
+  func toModel<T: BaseMappable>(_ type: T.Type) -> T? {
+    do {
+      guard let string = try jsonString() else { return nil }
+      return type.init(JSONString: string)
+    } catch {
+      return nil
     }
   }
   
-  func mapToModels<T: BaseMappable>(_ type: T.Type) -> Single<[T]> {
-    return map { Mapper<T>().mapArray(JSONString: try $0.jsonString()) }
+  func toModels<T: BaseMappable>(_ type: T.Type) -> [T]? {
+    do {
+      guard let string = try jsonString() else { return nil }
+      return Mapper<T>().mapArray(JSONString: string)
+    } catch {
+      return nil
+    }
   }
 }

@@ -13,5 +13,5 @@ public protocol AuthenticationUseCase {
   
   func logout() -> Single<Void>
   
-  func recoverUserSession() -> Single<UserSession>
+  func recoverUserSession() -> Single<UserSession?>
 }
