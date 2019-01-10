@@ -10,6 +10,7 @@ extension LoginResponse: ImmutableMappable {
   
   public init(map: Map) throws {
     self.init()
+    self.mapping(map: map)
   }
   
   public mutating func mapping(map: Map) {
