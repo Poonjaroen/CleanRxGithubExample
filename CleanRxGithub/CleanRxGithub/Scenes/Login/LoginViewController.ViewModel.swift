@@ -36,7 +36,7 @@ extension LoginViewController {
       let loggingIn = ActivityIndicator()
       let error = ErrorTracker()
       let loggedIn = input.loginTrigger
-        .flatMapLatest { Driver.combineLatest(input.username, input.password) }
+        .flatMap { Driver.combineLatest(input.username, input.password) }
         .flatMapLatest {
           self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: "CleanRxGithub")
                       .trackActivity(loggingIn)
