@@ -14,12 +14,14 @@ public enum Target: Moya.TargetType {
   
   public var path: String {
     switch self {
-    case .login(let request): return "/users/\(request.username)"
+    case .login(let request): return "/authorizations"
     }
   }
   
   public var method: Moya.Method {
-    return .get
+    switch self {
+    case .login(_): return .post
+    }
   }
   
   public var sampleData: Data {
