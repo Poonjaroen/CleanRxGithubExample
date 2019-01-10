@@ -35,11 +35,10 @@ extension LoginViewController {
     func transform(input: Input) -> Output {
       let loggingIn = ActivityIndicator()
       let error = ErrorTracker()
-      let loggedIn = Driver
-        .combineLatest(input.username, input.password)
-        .flatMapLatest { tuple in input.loginTrigger.map { (tuple.0, tuple.1) } }
+      let loggedIn = input.loginTrigger
+        .flatMapLatest { Driver.combineLatest(input.username, input.password) }
         .flatMapLatest {
-          self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: nil)
+          self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: "CleanRxGithub")
                       .trackActivity(loggingIn)
                       .trackError(error)
                       .observeOn(ConcurrentMainScheduler.instance)
@@ -47,11 +46,10 @@ extension LoginViewController {
                       .asDriverOnErrorJustComplete()
         }
         .do(onNext: { _ in self.navigator.toHome() })
+      
       return Output(loggedIn: loggedIn.debug("out:ok"),
                     loggingIn: loggingIn.debug("out:activity").asDriver(),
                     error: error.debug("out:error").asDriver())
     }
   }
 }
-
-
