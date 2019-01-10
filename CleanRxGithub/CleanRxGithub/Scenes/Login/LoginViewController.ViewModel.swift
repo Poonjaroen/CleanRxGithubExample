@@ -35,7 +35,7 @@ extension LoginViewController {
     func transform(input: Input) -> Output {
       let loggingIn = ActivityIndicator()
       let error = ErrorTracker()
-      let loggedIn = input.loginTrigger
+      let apiSession = input.loginTrigger
         .flatMap { Driver.combineLatest(input.username, input.password) }
         .flatMapLatest {
           self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: "CleanRxGithub")
@@ -45,7 +45,11 @@ extension LoginViewController {
                       .subscribeOn(MainScheduler.instance)
                       .asDriverOnErrorJustComplete()
         }
-        .do(onNext: { _ in self.navigator.toHome() })
+      
+      let recoveredSession = useCase.recoverUserSession().asDriver(onErrorJustReturn: nil)
+      
+      let loggedIn = recoveredSession.flatMap { $0.flatMap { .just($0) } ?? apiSession }
+                                     .do(onNext: { _ in self.navigator.toHome() })
       
       return Output(loggedIn: loggedIn.debug("out:ok"),
                     loggingIn: loggingIn.debug("out:activity").asDriver(),
