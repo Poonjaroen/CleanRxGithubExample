@@ -71,6 +71,8 @@
 		23F560EF3042B0A3ED52172A5B6050B8 /* ObserveOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30BE6AC7E611AFCD9C291BE760465 /* ObserveOn.swift */; };
 		247A9D000091F065566E3AA6A4492A68 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A9CCAEBB739D556F2AD8D6CAA0161 /* TransformType.swift */; };
 		24AF5C2CF7485C4A747B87248A3DFEFD /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FED830C02AB8D4939F623FBFA9661 /* ToJSON.swift */; };
+		25499011269E315DC585A1B1 /* ProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254995F15ADF2BD7C8816A41 /* ProfileUseCase.swift */; };
+		25499EC0C7049AABD1BD35AA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254999F997FA78C497208C17 /* UserProfile.swift */; };
 		26D32D0B4207E1627106500FDC70A882 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61316AC7EDCBA54F112AA982CD2A70 /* Cancelable.swift */; };
 		280D085D7B808100D6BB60C593F7B003 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E742094CC95DBDC2A2DB80267FB1178E /* Queue.swift */; };
 		28B57AFC4F05C1A66835B486A747D7FE /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA87AD06422685FB5850B011B14E75A3 /* Logging.swift */; };
@@ -262,7 +264,7 @@
 		A1B4E3D0C6EC13D6D6D2F477813B151B /* LoginRequest.Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2239CB281CDF24172C226BEE0A83FBB3 /* LoginRequest.Body.swift */; };
 		A1B98EF0AB5A3855DAC36F4CD6C9C485 /* CombineLatest+arity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3964C0EF0C21D115A604BA9C9D6798 /* CombineLatest+arity.swift */; };
 		A2C83B4E9301B85EB5A70623449B7260 /* ObservableConvertibleType+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB59ED7B4EF14ABFE29D0DA21D5D9D0 /* ObservableConvertibleType+SharedSequence.swift */; };
-		A36C3FEC92F8DB681A680817DA6C4DF0 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A8B4AA17418CD87A2801F19A9C782 /* AuthenticationUseCase.swift */; };
+		A36C3FEC92F8DB681A680817DA6C4DF0 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097013D9E7CF93B45540A53B2276DD7E /* AuthenticationUseCase.swift */; };
 		A3C7F6BEFADCBFF53317B029ED1E63DF /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE487D67AB8DA4D1FF4959AC86E17D3 /* NetworkLoggerPlugin.swift */; };
 		A48BAB787556633B4AE1ADA49E552804 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A991020294F705204DEF2756A23B7 /* Bag.swift */; };
 		A53B0C4B573EE538E7E8FABF83925586 /* PrimitiveSequence+Zip+arity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF10DEF4275D4094D26F0117E9B074D /* PrimitiveSequence+Zip+arity.swift */; };
@@ -356,7 +358,7 @@
 		DA0EF1793A1116BF10FE8C170674A077 /* CombineLatest+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83313AC676ADF02A9FA44A40757C560A /* CombineLatest+Collection.swift */; };
 		DA386B749503867AB7E561C61A99C15C /* Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433945838FD70EE65ABD46A31C20FB62 /* Sink.swift */; };
 		DAA3791BDA8C828486BF96A1109009CB /* UITabBarController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C986630BE382AE8EE6926D743CF7AE8 /* UITabBarController+Rx.swift */; };
-		DB939AD322290EC8292B1D3CB3F5BB44 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED109A39C2CD8FBCF4C6BBBA26B56CC /* UseCaseProvider.swift */; };
+		DB939AD322290EC8292B1D3CB3F5BB44 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67AA8342356638724FCCF60AD4F0FF /* UseCaseProvider.swift */; };
 		DB98922E5BAA3F30179BBE5BA766AEE7 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD01E47CC2E6090D5CB8C6A4E93EF1F /* Mapper.swift */; };
 		DBBB9A955FACEF4A05A9C4A8DC76E51E /* _RXKVOObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = E19117906B1184091CC867AB97809DA7 /* _RXKVOObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBE6E2E4D205545E7988CFA5057C31D6 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC455141C477958540819615A72592A /* DispatchQueue+Alamofire.swift */; };
@@ -675,6 +677,7 @@
 		07B78F5B22026D49C162666357947770 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+Rx.swift"; path = "RxCocoa/iOS/UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		08465394F35CA374D1F647595896C7E5 /* RxAtomic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxAtomic.framework; path = RxAtomic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EF3741F2252FFD8491C1A11CFE791B /* ShareReplayScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShareReplayScope.swift; path = RxSwift/Observables/ShareReplayScope.swift; sourceTree = "<group>"; };
+		097013D9E7CF93B45540A53B2276DD7E /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		0A1F985A061FBD87ECDCEAAB06096D26 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = RxSwift/Errors.swift; sourceTree = "<group>"; };
 		0A4B2882AF217246A2104742B2D77060 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		0AA184548FD4C9E8C11194DC81616F4B /* UIStepper+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStepper+Rx.swift"; path = "RxCocoa/iOS/UIStepper+Rx.swift"; sourceTree = "<group>"; };
@@ -730,6 +733,8 @@
 		23D56CBC67D00FF2A94940456FD32541 /* Pods_CleanRxGithub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CleanRxGithub.framework; path = "Pods-CleanRxGithub.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FED2910FF569E7E87481BCFD4E5637 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Rx.swift"; path = "Sources/RxMoya/MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
 		24931256ED14E61F5918960C84BFAF79 /* RxWebViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxWebViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxWebViewDelegateProxy.swift; sourceTree = "<group>"; };
+		254995F15ADF2BD7C8816A41 /* ProfileUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUseCase.swift; sourceTree = "<group>"; };
+		254999F997FA78C497208C17 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		2690D0896CF087A9240997AF8404CD7F /* InvocableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableType.swift; path = RxSwift/Schedulers/Internal/InvocableType.swift; sourceTree = "<group>"; };
 		28A2A1BEB5E4FE2572247AF83FABBB4C /* UISwitch+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISwitch+Rx.swift"; path = "RxCocoa/iOS/UISwitch+Rx.swift"; sourceTree = "<group>"; };
 		28E4DA4CF70A00E341DBEFF8A757E8C8 /* Using.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Using.swift; path = RxSwift/Observables/Using.swift; sourceTree = "<group>"; };
@@ -862,7 +867,6 @@
 		6E10C91D26CF9D69A9999E9EE6EC3F1E /* Moya+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Moya+Alamofire.swift"; path = "Sources/Moya/Moya+Alamofire.swift"; sourceTree = "<group>"; };
 		6E4650B19847C086E3FFCC689530EE01 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E69A01FE44009306D747BE9343E98D8 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = RxCocoa/Deprecated.swift; sourceTree = "<group>"; };
-		6ED109A39C2CD8FBCF4C6BBBA26B56CC /* UseCaseProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		6F08FDE28E538F55677ED0EF54CD3E9C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6F3684866EE326F4DFEFD86E3C0902E0 /* CompositeDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositeDisposable.swift; path = RxSwift/Disposables/CompositeDisposable.swift; sourceTree = "<group>"; };
 		7007B6F43B6E0769F1D4E4D4614911A9 /* Repeat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Repeat.swift; path = RxSwift/Observables/Repeat.swift; sourceTree = "<group>"; };
@@ -1036,7 +1040,6 @@
 		D17D38664458320F1D4887E3F32976CA /* GithubNetwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GithubNetwork-umbrella.h"; sourceTree = "<group>"; };
 		D1C7C03810C8C923ECD0145B5058EF59 /* AsyncLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncLock.swift; path = RxSwift/Concurrency/AsyncLock.swift; sourceTree = "<group>"; };
 		D1DDCDE06DC20E05B2A0C8DEAFEF11C7 /* UserSession+Initialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UserSession+Initialization.swift"; sourceTree = "<group>"; };
-		D20A8B4AA17418CD87A2801F19A9C782 /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		D2312A1D42C1FDA27E886D47FB12D8F2 /* Cancellable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = Sources/Moya/Cancellable.swift; sourceTree = "<group>"; };
 		D246528286F270B8C5BC0D416DCB5A50 /* GithubNetwork.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = GithubNetwork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D3E859DC869B02B9361D939975FABE46 /* UISearchController+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchController+Rx.swift"; path = "RxCocoa/iOS/UISearchController+Rx.swift"; sourceTree = "<group>"; };
@@ -1091,6 +1094,7 @@
 		EB92E4F055C828E2D04AF414EDE357D9 /* Pods-CleanRxGithub.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CleanRxGithub.modulemap"; sourceTree = "<group>"; };
 		EC0D6715319145E44646A3620A69721D /* PublishSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishSubject.swift; path = RxSwift/Subjects/PublishSubject.swift; sourceTree = "<group>"; };
 		ED45BBC059AFB83BBA6617CB6D57855D /* ElementAt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementAt.swift; path = RxSwift/Observables/ElementAt.swift; sourceTree = "<group>"; };
+		EE67AA8342356638724FCCF60AD4F0FF /* UseCaseProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		EEA2663C420D0360E40757BC351CC51D /* Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = RxSwift/Observables/Debug.swift; sourceTree = "<group>"; };
 		EEC205404D93D2D4AEE19BC067134B01 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		F0AC19F576BEC556A2AD8ED333E2F02C /* AtomicInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AtomicInt.swift; path = Platform/AtomicInt.swift; sourceTree = "<group>"; };
@@ -1282,6 +1286,7 @@
 				A27921D9F47616D0A29E3C16EA721FE5 /* OAuth.swift */,
 				43AA74B626F41361B785B56C09001977 /* UserSession.swift */,
 				435556A28E55865F89049532FC282C93 /* Errors */,
+				254999F997FA78C497208C17 /* UserProfile.swift */,
 			);
 			name = Entities;
 			path = GithubDomain/Classes/Entities;
@@ -1546,16 +1551,6 @@
 			);
 			name = Result;
 			path = Result;
-			sourceTree = "<group>";
-		};
-		60FCD19A5528508F0E35C292B5A65377 /* Use Cases */ = {
-			isa = PBXGroup;
-			children = (
-				D20A8B4AA17418CD87A2801F19A9C782 /* AuthenticationUseCase.swift */,
-				6ED109A39C2CD8FBCF4C6BBBA26B56CC /* UseCaseProvider.swift */,
-			);
-			name = "Use Cases";
-			path = "GithubDomain/Classes/Use Cases";
 			sourceTree = "<group>";
 		};
 		63D40B72BDA3E38A3A009A1F9EC7E5B6 /* RxSwift */ = {
@@ -2004,6 +1999,16 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
+		EAA5B07C43DE5E1C659B6EC63659F2F2 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				EE67AA8342356638724FCCF60AD4F0FF /* UseCaseProvider.swift */,
+				FCD45BDA9539BBDFC09456304AC6DA01 /* Public */,
+			);
+			name = "Use Cases";
+			path = "GithubDomain/Classes/Use Cases";
+			sourceTree = "<group>";
+		};
 		EC82AD31FE9ACB91E8437F7628111FA1 /* GithubNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2025,10 +2030,20 @@
 				21C12E4D748403F5A2528BA7E961F40A /* Entities */,
 				DD4516F14361DE3C5CB343327E72B6EC /* Pod */,
 				8F795486B991AF9D05E3C2E1010B356F /* Support Files */,
-				60FCD19A5528508F0E35C292B5A65377 /* Use Cases */,
+				EAA5B07C43DE5E1C659B6EC63659F2F2 /* Use Cases */,
 			);
 			name = GithubDomain;
 			path = ../../lib/domain/GithubDomain;
+			sourceTree = "<group>";
+		};
+		FCD45BDA9539BBDFC09456304AC6DA01 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				097013D9E7CF93B45540A53B2276DD7E /* AuthenticationUseCase.swift */,
+				254995F15ADF2BD7C8816A41 /* ProfileUseCase.swift */,
+			);
+			name = Public;
+			path = Public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2557,6 +2572,8 @@
 				D8DA0646EDC785C199B2C5898C86B799 /* Response+Transform.swift in Sources */,
 				7387A0FA1E52CF47115381DF40CC4C62 /* UseCaseProvider.swift in Sources */,
 				342F18F816399D864FEF9B429E60642C /* UserSession+Initialization.swift in Sources */,
+				25499011269E315DC585A1B1 /* ProfileUseCase.swift in Sources */,
+				25499EC0C7049AABD1BD35AA /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
