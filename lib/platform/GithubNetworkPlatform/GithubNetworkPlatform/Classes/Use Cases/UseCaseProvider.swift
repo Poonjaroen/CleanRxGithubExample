@@ -9,10 +9,17 @@ import Moya
 
 public final class UseCaseProvider: GithubDomain.UseCaseProvider {
   
+  private var networkProvider: Provider {
+    return Provider(plugins: [NetworkLoggerPlugin(verbose: true)])
+  }
+  
   public init() {}
   
   public func makeAuthenticationUseCase() -> GithubDomain.AuthenticationUseCase {
-    
-    return AuthenticationUseCase(network: Provider(plugins: [NetworkLoggerPlugin(verbose: true)]))
+    return AuthenticationUseCase(network: networkProvider)
+  }
+  
+  public func makeProfileUseCase(session: UserSession) -> GithubDomain.ProfileUseCase {
+    return ProfileUseCase(session: session, network: networkProvider)
   }
 }
