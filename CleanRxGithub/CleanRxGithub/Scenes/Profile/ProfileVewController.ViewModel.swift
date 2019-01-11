@@ -43,7 +43,9 @@ extension ProfileViewController {
 //      let fullName = userProfile.map { "\($0.firstName) \($0.lastName)" }
       let fullName = userProfile.map { $0?.url }
       
-      let logout = authenticationUseCase.logout()
+      let logout = input.logoutTrigger
+        .flatMap { _ in self.authenticationUseCase.logout().asDriver(onErrorJustReturn: ()) }
+        .do(onNext: { self.navigator.toLogin() })
       
       return Output.init(
         profileImage: profileImage.asDriver(onErrorJustReturn: nil),

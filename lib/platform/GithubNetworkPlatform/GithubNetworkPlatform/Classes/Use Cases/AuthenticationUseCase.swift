@@ -60,8 +60,12 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   }
   
   func logout() -> Single<Void> {
-    AuthenticationUseCase.currentUserSession = nil
-    return .just(())
+    guard let id = AuthenticationUseCase.cache?.id else {
+      return .just(())
+    }
+    return network.rx.request(.deletePAT(id: id))
+                     .do(onSuccess: { AuthenticationUseCase.currentUserSession = nil })
+                     .do(onSuccess: { AuthenticationUseCase.cache = nil })
   }
   
   func recoverUserSession() -> Single<UserSession?> {

@@ -7,7 +7,7 @@ import Foundation
 import GithubDomain
 
 protocol ProfileNavigator {
-  func placholder()
+  func toLogin()
 }
 
 class DefaultProfileNavigator: ProfileNavigator {
@@ -23,7 +23,8 @@ class DefaultProfileNavigator: ProfileNavigator {
     self.storyboard = storyboard
   }
   
-  func placholder() {
-    fatalError("This file is here just for the sake of completeness of the example")
+  func toLogin() {
+    let viewController = storyboard.instantiateInitialViewController()
+    UIApplication.shared.keyWindow?.rootViewController = viewController
   }
 }
