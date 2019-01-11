@@ -24,7 +24,7 @@ class DefaultLoginNavigator: LoginNavigator {
   }
   
   func toHome() {
-    let viewController = storyboard.instantiateViewController(ofType: HomeViewController.self)
+    let viewController = storyboard.instantiateViewController(ofType: ProfileViewController.self)
 //    let useCase = ??
 //    let navigator = ??
 //    viewController.viewModel = HomeViewController.ViewModel(useCase: useCase, navigator: navigator)
