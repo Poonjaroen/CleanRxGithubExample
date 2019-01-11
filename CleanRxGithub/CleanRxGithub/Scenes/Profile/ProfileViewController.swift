@@ -25,44 +25,51 @@ class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    rxBinding()
+    _ = ensureViewModel().subscribe(onSuccess: { [weak self] in self?.rxBinding() })
   }
   
   func rxBinding() {
-    ensureViewModel()
     let output = viewModel.transform(input: .init())
-
-// NOTE: Functional!!!
-//    profileImageView.flatMap {
-//      output.profileImage.drive($0.rx.image)
-//    }
-//
-//    nameLabel.flatMap {
-//      Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }
-//           .drive($0.rx.text)
-//    }
-//
-// NOTE: The same one as above but shorten to one line
-//    profileImageView.flatMap { output.profileImage.drive($0.rx.image) }
-//    nameLabel.flatMap { Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }.drive($0.rx.text) }
+    
+    // NOTE: Functional!!! If you are interested uncommented this and comment below
+    //profileImageView.flatMap {
+    //  output.profileImage.drive($0.rx.image)
+    //}.disposed(by: disposeBag)
+    //
+    //nameLabel.flatMap {
+    //  Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }
+    //       .drive($0.rx.text)
+    //}.disposed(by: disposeBag)
+    //
+    // NOTE: The same one as above but shorten to one line
+    //profileImageView.flatMap { output.profileImage.drive($0.rx.image) }.disposed(by: disposeBag)
+    //nameLabel.flatMap { Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }.drive($0.rx.text) }.disposed(by: disposeBag)
     
     if let imageView = profileImageView {
       output.profileImage.drive(imageView.rx.image)
+                         .disposed(by: disposeBag)
     }
     
     if let label = nameLabel {
-      Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }
-           .drive(label.rx.text)
+      output.fullName.drive(label.rx.text)
+                     .disposed(by: disposeBag)
     }
   }
   
-  private func ensureViewModel() {
-    guard viewModel == nil else { return }
-    let stb = UIStoryboard(name: "Main", bundle: nil)
-    let useCase = AppDelegate.useCaseProvider.makeProfileUseCase()
-    let navigator = DefaultProfileNavigator(provider: AppDelegate.useCaseProvider,
-                                            sourceViewController: self,
-                                            storyboard: stb)
-    viewModel = ViewModel(useCase: useCase, navigator: navigator)
+  private func ensureViewModel() -> Single<Void> {
+    guard viewModel == nil else { return Single.error(NetworkError()) }
+    return AppDelegate.useCaseProvider
+      .makeAuthenticationUseCase()
+      .recoverUserSession()
+      .map { session in
+        guard let session = session else { throw NetworkError() }
+        let stb = UIStoryboard(name: "Main", bundle: nil)
+        let useCase = AppDelegate.useCaseProvider.makeProfileUseCase(session: session)
+        let navigator = DefaultProfileNavigator(provider: AppDelegate.useCaseProvider,
+                                                sourceViewController: self,
+                                                storyboard: stb)
+        viewModel = ViewModel(useCase: useCase, navigator: navigator)
+        return
+      }
   }
 }
