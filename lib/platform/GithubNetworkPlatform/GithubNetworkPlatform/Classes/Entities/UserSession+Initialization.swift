@@ -13,7 +13,7 @@ extension UserSession {
     if let accessToken = loginResponse.token {
       self.init(username: username, accessToken: accessToken, refreshToken: refreshToken)
     } else {
-      throw NetworkError()
+      throw InternalError()
     }
   }
 }

@@ -19,13 +19,26 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   
   static var currentUserSession: UserSession? = nil
   
-  static var cache: LoginResponse? {
+  static var usernameCache: String? {
+    get { return UserDefaults.standard.string(forKey: "Username_Cache") }
+    set { UserDefaults.standard.set(newValue, forKey: "Username_Cache") }
+  }
+  
+  static var passwordCache: String? {
+    get { return UserDefaults.standard.string(forKey: "Password_Cache") }
+    set { UserDefaults.standard.set(newValue, forKey: "Password_Cache") }
+  }
+  
+  static var loginResponseCache: LoginResponse? {
     get {
       return UserDefaults.standard.string(forKey: "LoginResponse_Cache")
                                   .flatMap { LoginResponse(JSONString: $0) }
     }
     set {
-      let json = newValue?.toJSONString() ?? "{}"
+      guard let json = newValue?.toJSONString() else {
+        UserDefaults.standard.set(nil, forKey: "LoginResponse_Cache")
+        return
+      }
       print("Storing json", json)
       UserDefaults.standard.set(json, forKey: "LoginResponse_Cache")
     }
@@ -39,8 +52,12 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
                              password: String,
                              scopes: [String],
                              note: String?) -> Single<LoginResponse> {
-    if let cache = AuthenticationUseCase.cache {
-      return Single.just(cache)
+    if let cache = AuthenticationUseCase.loginResponseCache {
+      if cache.id == nil {
+        return Single.error(InternalError())
+      } else {
+        return Single.just(cache)
+      }
     } else {
       return network.rx
         .request(.login(request: LoginRequest(username: username, password: password, scopes: scopes, note: note)))
@@ -54,24 +71,44 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
              scopes: [String] = ["public_repo"],
              note: String? = nil) -> Single<UserSession> {
     return loginResponse(username: username, password: password, scopes: scopes, note: note)
-      .do(onSuccess: { AuthenticationUseCase.cache = $0 })
+      .do(onSuccess: {
+        AuthenticationUseCase.usernameCache = username
+        AuthenticationUseCase.passwordCache = password
+        AuthenticationUseCase.loginResponseCache = $0
+      }, onError: { _ in
+        AuthenticationUseCase.clearCaches()
+      })
       .map(UserSession.init(loginResponse:))
       .do(onSuccess: { AuthenticationUseCase.currentUserSession = $0 })
   }
   
   func logout() -> Single<Void> {
-    guard let id = AuthenticationUseCase.cache?.id else {
+    guard let id = AuthenticationUseCase.loginResponseCache?.id,
+          let username = AuthenticationUseCase.usernameCache,
+          let password = AuthenticationUseCase.passwordCache else {
       return .just(())
     }
-    return network.rx.request(.deletePAT(id: id))
-                     .do(onSuccess: { AuthenticationUseCase.currentUserSession = nil })
-                     .do(onSuccess: { AuthenticationUseCase.cache = nil })
+    return network.rx.request(.deletePAT(id: id, username: username, password: password))
+                     .debug("deletePAT")
+                     .do(onSuccess: { _ in AuthenticationUseCase.currentUserSession = nil })
+                     .do(onSuccess: { _ in AuthenticationUseCase.clearCaches() })
+                     .map { _ in }
+  }
+  
+  private class func clearCaches() {
+    loginResponseCache = nil
+    usernameCache = nil
+    passwordCache = nil
   }
   
   func recoverUserSession() -> Single<UserSession?> {
     // In memory recovering is preferred to disk recovering
-    return .just(AuthenticationUseCase.currentUserSession ??
-                 AuthenticationUseCase.cache.flatMap { try? UserSession(loginResponse: $0) })
+    let maybeSession = AuthenticationUseCase.currentUserSession ??
+                       AuthenticationUseCase.loginResponseCache.flatMap { try? UserSession(loginResponse: $0) }
+    maybeSession.flatMap {
+      AuthenticationUseCase.currentUserSession = $0
+    }
+    return .just(maybeSession)
   }
 }
 

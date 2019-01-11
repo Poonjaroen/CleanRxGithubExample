@@ -16,6 +16,7 @@ extension LoginResponse: ImmutableMappable {
   public mutating func mapping(map: Map) {
     id <- map["id"]
     url <- map["url"]
+    id = url.flatMap { $0.split(separator: "/").last }.flatMap { String($0) }
     scopes <- map["scopes"]
     token <- map["token"]
     tokenLastEight <- map["token_last_eight"]

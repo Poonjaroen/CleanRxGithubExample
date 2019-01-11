@@ -8,7 +8,7 @@ import Moya
 
 extension Response {
   var error: Error? {
-    if statusCode > 299 && statusCode < 500 {
+    if statusCode > 299 && statusCode < 600 {
       return APIError(code: statusCode, body: data)
     } else if statusCode > 499 {
       return NetworkError()

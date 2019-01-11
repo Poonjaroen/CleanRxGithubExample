@@ -61,12 +61,12 @@ class ProfileViewController: UIViewController {
   }
   
   private func ensureViewModel() -> Single<Void> {
-    guard viewModel == nil else { return Single.error(NetworkError()) }
+    guard viewModel == nil else { return Single.error(InternalError()) }
     return AppDelegate.useCaseProvider
       .makeAuthenticationUseCase()
       .recoverUserSession()
       .map { [weak self] session in
-        guard let _self = self, let session = session else { throw NetworkError() }
+        guard let _self = self, let session = session else { throw InternalError() }
         let stb = UIStoryboard(name: "Main", bundle: nil)
         let profileUseCase = AppDelegate.useCaseProvider.makeProfileUseCase(session: session)
         let authenticationUseCase = AppDelegate.useCaseProvider.makeAuthenticationUseCase()
