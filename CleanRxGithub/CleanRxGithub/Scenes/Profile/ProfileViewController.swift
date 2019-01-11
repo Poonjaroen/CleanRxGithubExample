@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var profileImageView: UIImageView?
   @IBOutlet weak var nameLabel: UILabel?
+  @IBOutlet weak var logoutButton: UIBarButtonItem?
   
   // MARK: - Rx
   
@@ -29,7 +30,8 @@ class ProfileViewController: UIViewController {
   }
   
   func rxBinding() {
-    let output = viewModel.transform(input: .init())
+    guard let logoutButton = logoutButton else { return }
+    let output = viewModel.transform(input: .init(logoutTrigger: logoutButton.rx.tap.asDriver()))
     
     // NOTE: Functional!!! If you are interested uncommented this and comment below
     //profileImageView.flatMap {
@@ -54,6 +56,8 @@ class ProfileViewController: UIViewController {
       output.fullName.drive(label.rx.text)
                      .disposed(by: disposeBag)
     }
+    
+    output.logout.drive().disposed(by: disposeBag)
   }
   
   private func ensureViewModel() -> Single<Void> {
@@ -64,11 +68,14 @@ class ProfileViewController: UIViewController {
       .map { [weak self] session in
         guard let _self = self, let session = session else { throw NetworkError() }
         let stb = UIStoryboard(name: "Main", bundle: nil)
-        let useCase = AppDelegate.useCaseProvider.makeProfileUseCase(session: session)
+        let profileUseCase = AppDelegate.useCaseProvider.makeProfileUseCase(session: session)
+        let authenticationUseCase = AppDelegate.useCaseProvider.makeAuthenticationUseCase()
         let navigator = DefaultProfileNavigator(provider: AppDelegate.useCaseProvider,
                                                 sourceViewController: _self,
                                                 storyboard: stb)
-        _self.viewModel = ViewModel(useCase: useCase, navigator: navigator)
+        _self.viewModel = ViewModel(profileUseCase: profileUseCase,
+                                    authenticationUseCase: authenticationUseCase,
+                                    navigator: navigator)
         return
       }
   }

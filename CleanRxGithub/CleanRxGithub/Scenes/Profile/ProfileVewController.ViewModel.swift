@@ -11,25 +11,29 @@ import RxCocoa
 extension ProfileViewController {
   final class ViewModel: ViewModelType {
     struct Input {
-      init() {}
+      var logoutTrigger: Driver<Void>
     }
     
     struct Output {
       var profileImage: Driver<UIImage?>
       var fullName: Driver<String?>
+      var logout: Driver<Void>
     }
     
-    var useCase: ProfileUseCase
+    var profileUseCase: ProfileUseCase
+    var authenticationUseCase: AuthenticationUseCase
     var navigator: ProfileNavigator
     
-    init(useCase: ProfileUseCase,
+    init(profileUseCase: ProfileUseCase,
+         authenticationUseCase: AuthenticationUseCase,
          navigator: ProfileNavigator) {
-      self.useCase = useCase
+      self.profileUseCase = profileUseCase
+      self.authenticationUseCase = authenticationUseCase
       self.navigator = navigator
     }
     
     func transform(input: Input) -> Output {
-      let userProfile = useCase.myProfile()
+      let userProfile = profileUseCase.myProfile()
       let profileImage = userProfile.map { profile -> UIImage? in
         guard let urlString = profile?.avatarUrl,
               let url = URL(string: urlString) else { return nil }
@@ -38,9 +42,13 @@ extension ProfileViewController {
       }
 //      let fullName = userProfile.map { "\($0.firstName) \($0.lastName)" }
       let fullName = userProfile.map { $0?.url }
+      
+      let logout = authenticationUseCase.logout()
+      
       return Output.init(
         profileImage: profileImage.asDriver(onErrorJustReturn: nil),
-        fullName: fullName.asDriver(onErrorJustReturn: nil)
+        fullName: fullName.asDriver(onErrorJustReturn: nil),
+        logout: logout.asDriver(onErrorJustReturn: ())
       )
     }
   }

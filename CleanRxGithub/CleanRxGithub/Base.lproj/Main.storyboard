@@ -91,16 +91,22 @@
             </objects>
             <point key="canvasLocation" x="224.80000000000001" y="791.15442278860576"/>
         </scene>
-        <!--Home-->
+        <!--Profile-->
         <scene sceneID="hNS-6s-KMj">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="66S-yd-HNb" customClass="ProfileViewController" customModule="CleanRxGithub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="66S-yd-HNb" customClass="ProfileViewController" customModule="CleanRxGithub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y7r-Ni-1OG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYL-RJ-G67">
-                                <rect key="frame" x="164.5" y="323" width="46" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-N2-Vn0">
+                                <rect key="frame" x="125" y="180" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Vu4-N2-Vn0" secondAttribute="height" id="CEd-ib-nOK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoM-1p-0AS">
+                                <rect key="frame" x="32" y="331" width="311" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -108,12 +114,25 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bYL-RJ-G67" firstAttribute="centerX" secondItem="Y7r-Ni-1OG" secondAttribute="centerX" id="VNG-Cy-GNv"/>
-                            <constraint firstItem="bYL-RJ-G67" firstAttribute="centerY" secondItem="Y7r-Ni-1OG" secondAttribute="centerY" id="iEe-4A-bfa"/>
+                            <constraint firstItem="Vu4-N2-Vn0" firstAttribute="top" secondItem="RRV-CK-EI8" secondAttribute="top" constant="64" id="2Kv-pO-hpU"/>
+                            <constraint firstItem="Vu4-N2-Vn0" firstAttribute="centerX" secondItem="Y7r-Ni-1OG" secondAttribute="centerX" id="IRv-ij-ckC"/>
+                            <constraint firstItem="QoM-1p-0AS" firstAttribute="leading" secondItem="RRV-CK-EI8" secondAttribute="leading" constant="32" id="Pkq-Qw-r2L"/>
+                            <constraint firstItem="QoM-1p-0AS" firstAttribute="top" secondItem="Vu4-N2-Vn0" secondAttribute="bottom" constant="26" id="ZJv-ZR-DdB"/>
+                            <constraint firstItem="RRV-CK-EI8" firstAttribute="trailing" secondItem="QoM-1p-0AS" secondAttribute="trailing" constant="32" id="fnH-h6-YHM"/>
+                            <constraint firstItem="Vu4-N2-Vn0" firstAttribute="width" secondItem="Y7r-Ni-1OG" secondAttribute="width" multiplier="1/3" id="gLU-du-A6T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RRV-CK-EI8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="pDo-87-xYS"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Profile" id="pDo-87-xYS">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="gFX-wn-JIy"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="gFX-wn-JIy" id="oDA-yD-Qdy"/>
+                        <outlet property="nameLabel" destination="QoM-1p-0AS" id="8UF-NC-B5c"/>
+                        <outlet property="profileImageView" destination="Vu4-N2-Vn0" id="bCd-hJ-umP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vr-Qa-NEH" sceneMemberID="firstResponder"/>
             </objects>
