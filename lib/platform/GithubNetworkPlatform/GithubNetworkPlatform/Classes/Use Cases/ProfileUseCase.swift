@@ -22,11 +22,11 @@ public class ProfileUseCase: GithubDomain.ProfileUseCase {
     self.network = Provider()
   }
   
-  public func myProfile() -> Single<UserProfile> {
+  public func myProfile() -> Single<UserProfile?> {
     return userProfile(username: session.username)
   }
   
-  public func userProfile(username: String) -> Single<UserProfile> {
+  public func userProfile(username: String) -> Single<UserProfile?> {
     return network.rx.request(.profile(username: username))
                      .map { $0.toModel(UserProfile.self) }
   }
