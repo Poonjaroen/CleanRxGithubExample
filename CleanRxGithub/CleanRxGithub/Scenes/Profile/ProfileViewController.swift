@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
   
   // MARK: - Rx
   
-  let viewModel: ViewModel!
+  var viewModel: ViewModel!
   let disposeBag = DisposeBag()
   
   // MARK: - Cycles
@@ -61,14 +61,14 @@ class ProfileViewController: UIViewController {
     return AppDelegate.useCaseProvider
       .makeAuthenticationUseCase()
       .recoverUserSession()
-      .map { session in
-        guard let session = session else { throw NetworkError() }
+      .map { [weak self] session in
+        guard let _self = self, let session = session else { throw NetworkError() }
         let stb = UIStoryboard(name: "Main", bundle: nil)
         let useCase = AppDelegate.useCaseProvider.makeProfileUseCase(session: session)
         let navigator = DefaultProfileNavigator(provider: AppDelegate.useCaseProvider,
-                                                sourceViewController: self,
+                                                sourceViewController: _self,
                                                 storyboard: stb)
-        viewModel = ViewModel(useCase: useCase, navigator: navigator)
+        _self.viewModel = ViewModel(useCase: useCase, navigator: navigator)
         return
       }
   }

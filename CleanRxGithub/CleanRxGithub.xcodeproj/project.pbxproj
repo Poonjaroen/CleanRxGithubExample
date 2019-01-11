@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25499266802CB2553D62E2DA /* ProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549906A9C14DA515E5E87EB /* ProfileNavigator.swift */; };
 		2549929808143D97CD070B6C /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254997BF1E8DC928FA5E1F9A /* LoginNavigator.swift */; };
 		254992DC8DA2BEE1DBBDBCCE /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499502164FCD0658E0AB14 /* ViewModelType.swift */; };
 		2549944C4D10E4C3956BE9A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499C9116B8255645FD6489 /* ProfileViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2549906A9C14DA515E5E87EB /* ProfileNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
 		2549934C361545ABEDE060E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25499502164FCD0658E0AB14 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		254996C603C1EED3F1CAB40F /* ProfileVewController.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVewController.ViewModel.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				25499C9116B8255645FD6489 /* ProfileViewController.swift */,
 				254996C603C1EED3F1CAB40F /* ProfileVewController.ViewModel.swift */,
+				2549906A9C14DA515E5E87EB /* ProfileNavigator.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				25499A8F59C9176A82A4D40C /* Reusable.swift in Sources */,
 				254995B24E8FFA177D164518 /* SearchRepoViewController.swift in Sources */,
 				254995B8EB5F9381DFB57CA9 /* ProfileVewController.ViewModel.swift in Sources */,
+				25499266802CB2553D62E2DA /* ProfileNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
