@@ -121,8 +121,8 @@
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoM-1p-0AS">
                                 <rect key="frame" x="32" y="331" width="311" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.90000000000000002" green="0.64100571470000001" blue="0.21553670799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0q-F5-DEO">
@@ -162,6 +162,12 @@
                                     <constraint firstAttribute="bottom" secondItem="cQT-yq-7zk" secondAttribute="bottom" id="y2n-4R-mZi"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="https://www.google.co.th" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-Zm-rhi">
+                                <rect key="frame" x="32" y="355" width="311" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.2156862745" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -176,6 +182,7 @@
                             <constraint firstItem="jQP-cb-pGR" firstAttribute="top" secondItem="Y7r-Ni-1OG" secondAttribute="top" id="SIh-gU-K43"/>
                             <constraint firstItem="t5c-Jl-B9C" firstAttribute="centerY" secondItem="Vu4-N2-Vn0" secondAttribute="centerY" id="fOz-SN-aiE"/>
                             <constraint firstItem="RRV-CK-EI8" firstAttribute="trailing" secondItem="QoM-1p-0AS" secondAttribute="trailing" constant="32" id="fnH-h6-YHM"/>
+                            <constraint firstItem="Ppe-Zm-rhi" firstAttribute="top" secondItem="QoM-1p-0AS" secondAttribute="bottom" id="k3d-ly-nZt"/>
                             <constraint firstItem="h0q-F5-DEO" firstAttribute="centerX" secondItem="Y7r-Ni-1OG" secondAttribute="centerX" id="ys9-YZ-CMH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RRV-CK-EI8"/>
