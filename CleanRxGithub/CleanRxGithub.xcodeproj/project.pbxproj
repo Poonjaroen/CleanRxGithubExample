@@ -23,6 +23,7 @@
 		25499ADD6FFD7C92C6B120A6 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499A8A24EEE0D39C90D78C /* UIView+Transform.swift */; };
 		25499BC427231EB408FDE596 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499BAC9081429162E07B3B /* ActivityIndicator.swift */; };
 		25499D20F4673C18DAEF9CCC /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499FBC1DB89A843D4487CA /* MapExtensions.swift */; };
+		25499DDB04A18E5B6CE96A80 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254990E26B894C5D514432C7 /* UnderlineTextField.swift */; };
 		25499DFC1EE32B52C670AC89 /* HomeTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499FB04C908B450D519DC1 /* HomeTabsController.swift */; };
 		25499E065D47D519A39190F2 /* LoginViewController.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499E215E8DB93F465036E9 /* LoginViewController.ViewModel.swift */; };
 		25499E40480F1CFB7DCE9BFB /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254997F4C767B13316158F96 /* Observable+Ext.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2549906A9C14DA515E5E87EB /* ProfileNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
+		254990E26B894C5D514432C7 /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		2549934C361545ABEDE060E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2549945F4882896E58A3252C /* UIView+Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Coordinate.swift"; sourceTree = "<group>"; };
 		25499502164FCD0658E0AB14 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 				25499E577D3C8A9214E6B0B3 /* SearchRepoViewController.swift */,
 			);
 			path = SearchRepo;
+			sourceTree = "<group>";
+		};
+		254996C3315A2C126C4CFAA8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				254990E26B894C5D514432C7 /* UnderlineTextField.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		254997A721BD77A8DFF5717E /* Scenes */ = {
@@ -202,6 +212,7 @@
 				254997A721BD77A8DFF5717E /* Scenes */,
 				254990A34A5842BD1021E905 /* Architecture Support */,
 				25499DE04AC2E5B85669588A /* Utilities */,
+				254996C3315A2C126C4CFAA8 /* UI */,
 			);
 			path = CleanRxGithub;
 			sourceTree = "<group>";
@@ -364,6 +375,7 @@
 				25499D20F4673C18DAEF9CCC /* MapExtensions.swift in Sources */,
 				254994C03FC0685539E6B4E0 /* UIColor+Conversion.swift in Sources */,
 				25499A446924A82BB1DF745A /* ApplicationSpecific.swift in Sources */,
+				25499DDB04A18E5B6CE96A80 /* UnderlineTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
