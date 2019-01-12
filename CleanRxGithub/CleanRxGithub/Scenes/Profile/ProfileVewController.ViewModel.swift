@@ -16,6 +16,7 @@ extension ProfileViewController {
     
     struct Output {
       var profileImage: Driver<UIImage?>
+      var profileUrl: Driver<String?>
       var fullName: Driver<String?>
       var logout: Driver<Void>
       var loadingProfile: Driver<Bool>
@@ -48,6 +49,8 @@ extension ProfileViewController {
         return UIImage(data: data)
       }
       
+      let profileUrl = userProfile.map { $0?.url }
+      
       let fullName = userProfile.map { $0?.name }
       
       let logout = input.logoutTrigger
@@ -57,6 +60,7 @@ extension ProfileViewController {
       
       return Output.init(
         profileImage: profileImage.asDriver(onErrorJustReturn: nil),
+        profileUrl: profileUrl.asDriver(onErrorJustReturn: nil),
         fullName: fullName.asDriver(onErrorJustReturn: nil),
         logout: logout.asDriver(onErrorJustReturn: ()),
         loadingProfile: loadingProfile.asDriver(),
