@@ -8,6 +8,10 @@ import UIKit
 
 class HomeTabsController: UITabBarController {
   
+  // MARK: - Overrides
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationItem.hidesBackButton = true
