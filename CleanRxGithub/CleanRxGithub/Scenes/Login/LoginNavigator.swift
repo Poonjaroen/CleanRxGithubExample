@@ -24,15 +24,15 @@ class DefaultLoginNavigator: LoginNavigator {
   }
   
   func toHome() {
-    let viewController = storyboard.instantiateViewController(ofType: ProfileViewController.self)
+    let viewController = storyboard.instantiateViewController(ofType: HomeTabsController.self)
 //    let useCase = ??
 //    let navigator = ??
 //    viewController.viewModel = HomeViewController.ViewModel(useCase: useCase, navigator: navigator)
     if let navController = sourceViewController.navigationController {
 //      navController.viewControllers = [viewController]
-      sourceViewController.show(viewController, sender: nil)
+      sourceViewController.present(viewController, animated: true)
     } else {
-      sourceViewController.show(viewController, sender: nil)
+      sourceViewController.present(viewController, animated: true)
       sourceViewController.removeFromParent()
     }
   }

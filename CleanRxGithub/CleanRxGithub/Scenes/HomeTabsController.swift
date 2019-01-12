@@ -10,6 +10,7 @@ class HomeTabsController: UITabBarController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.navigationItem.hidesBackButton = true
   }
   
 }
