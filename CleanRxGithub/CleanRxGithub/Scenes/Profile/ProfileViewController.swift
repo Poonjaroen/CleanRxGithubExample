@@ -34,6 +34,8 @@ class ProfileViewController: UIViewController {
   }
   
   private func setupUI() {
+    profileImageContainerView?.beCircle()
+    
     profileImageView.flatMap {
       $0.beCircle()
       profileImageView?.addShadow(pathLike: $0)
@@ -55,6 +57,12 @@ class ProfileViewController: UIViewController {
       output.fullName.drive(label.rx.text)
                      .disposed(by: disposeBag)
     }
+    _ = output.loadingProfile
+      .asObservable()
+      .filter { !$0 }
+      .take(1)
+      .mapToVoid()
+      .subscribe(onNext: { [weak self] in self?.displayProfileLoaded() })
     
     output.logout.drive()
                  .disposed(by: disposeBag)
@@ -78,5 +86,26 @@ class ProfileViewController: UIViewController {
                                     navigator: navigator)
         return
       }
+  }
+  
+  // MARK: - Display
+  
+  func displayProfileLoaded() {
+    activityIndcatorContainerView.selectWith(profileImageView) { (view, imageView) in
+      view.animateMagicMove(to: imageView,
+                            addOnAnimationsDelay: 0.4,
+                            addOnAnimations: { $0.alpha = 0 })
+    }
+    
+    let views = profileImageContainerView.selectWith(nameLabel) { [$0, $1] }
+    views?.forEach {
+      $0.isHidden = false
+      $0.alpha = 0
+    }
+    UIView.animate(withDuration: 0.4,
+                   delay: 0.4,
+                   animations: {
+      views?.forEach { $0.alpha = 1 }
+    })
   }
 }
