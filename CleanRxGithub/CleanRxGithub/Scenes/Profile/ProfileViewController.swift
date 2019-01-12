@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var profileImageView: UIImageView?
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var logoutButton: UIBarButtonItem?
+  @IBOutlet weak var activityIndcatorContainerView: UIView?
+  @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView?
   
   // MARK: - Rx
   
@@ -33,39 +35,16 @@ class ProfileViewController: UIViewController {
   
   private func setupUI() {
     profileImageView.flatMap {
-      let radius = $0.frame.size.width / 2
-      $0.layer.cornerRadius = radius
-      $0.layer.masksToBounds = true
+      $0.beCircle()
+      profileImageView?.addShadow(pathLike: $0)
     }
-  
-    profileImageContainerView.flatMap {
-      let radius = $0.frame.size.width / 2
-      $0.layer.cornerRadius = radius
-      $0.layer.shadowColor = UIColor.black.cgColor
-      $0.layer.masksToBounds = false
-      $0.layer.shadowOffset = .init(width: 0, height: 8)
-      $0.layer.shadowOpacity = 0.2
-      $0.layer.shadowRadius = 4
-    }
+    
+    activityIndcatorContainerView?.beCircle()
   }
   
   func rxBinding() {
     guard let logoutButton = logoutButton else { return }
     let output = viewModel.transform(input: .init(logoutTrigger: logoutButton.rx.tap.asDriver()))
-    
-    // NOTE: Functional!!! If you are interested uncommented this and comment below
-    //profileImageView.flatMap {
-    //  output.profileImage.drive($0.rx.image)
-    //}.disposed(by: disposeBag)
-    //
-    //nameLabel.flatMap {
-    //  Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }
-    //       .drive($0.rx.text)
-    //}.disposed(by: disposeBag)
-    //
-    // NOTE: The same one as above but shorten to one line
-    //profileImageView.flatMap { output.profileImage.drive($0.rx.image) }.disposed(by: disposeBag)
-    //nameLabel.flatMap { Drive.zip(output.firstName, output.lastName) { "\($0) \($1)" }.drive($0.rx.text) }.disposed(by: disposeBag)
     
     if let imageView = profileImageView {
       output.profileImage.drive(imageView.rx.image)
@@ -77,7 +56,8 @@ class ProfileViewController: UIViewController {
                      .disposed(by: disposeBag)
     }
     
-    output.logout.drive().disposed(by: disposeBag)
+    output.logout.drive()
+                 .disposed(by: disposeBag)
   }
   
   private func ensureViewModel() -> Single<Void> {
