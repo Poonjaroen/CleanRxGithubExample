@@ -162,7 +162,7 @@
                                     <constraint firstAttribute="bottom" secondItem="cQT-yq-7zk" secondAttribute="bottom" id="y2n-4R-mZi"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="https://www.google.co.th" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-Zm-rhi">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.google.co.th" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-Zm-rhi">
                                 <rect key="frame" x="32" y="355" width="311" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +174,7 @@
                             <constraint firstItem="h0q-F5-DEO" firstAttribute="width" secondItem="Y7r-Ni-1OG" secondAttribute="width" multiplier="1/3" id="3q8-j8-cf4"/>
                             <constraint firstAttribute="trailing" secondItem="jQP-cb-pGR" secondAttribute="trailing" id="85M-q4-pxa"/>
                             <constraint firstItem="jQP-cb-pGR" firstAttribute="leading" secondItem="Y7r-Ni-1OG" secondAttribute="leading" id="8nB-fj-wqB"/>
+                            <constraint firstItem="Ppe-Zm-rhi" firstAttribute="leading" secondItem="RRV-CK-EI8" secondAttribute="leading" constant="32" id="EA8-kK-biR"/>
                             <constraint firstItem="t5c-Jl-B9C" firstAttribute="centerX" secondItem="Vu4-N2-Vn0" secondAttribute="centerX" id="EX1-RS-dD2"/>
                             <constraint firstItem="QoM-1p-0AS" firstAttribute="top" secondItem="h0q-F5-DEO" secondAttribute="bottom" constant="26" id="Jtg-KI-rB5"/>
                             <constraint firstItem="h0q-F5-DEO" firstAttribute="top" secondItem="RRV-CK-EI8" secondAttribute="top" constant="64" id="Lpg-TZ-W0G"/>
@@ -183,6 +184,7 @@
                             <constraint firstItem="t5c-Jl-B9C" firstAttribute="centerY" secondItem="Vu4-N2-Vn0" secondAttribute="centerY" id="fOz-SN-aiE"/>
                             <constraint firstItem="RRV-CK-EI8" firstAttribute="trailing" secondItem="QoM-1p-0AS" secondAttribute="trailing" constant="32" id="fnH-h6-YHM"/>
                             <constraint firstItem="Ppe-Zm-rhi" firstAttribute="top" secondItem="QoM-1p-0AS" secondAttribute="bottom" id="k3d-ly-nZt"/>
+                            <constraint firstItem="RRV-CK-EI8" firstAttribute="trailing" secondItem="Ppe-Zm-rhi" secondAttribute="trailing" constant="32" id="qJH-Vq-ukG"/>
                             <constraint firstItem="h0q-F5-DEO" firstAttribute="centerX" secondItem="Y7r-Ni-1OG" secondAttribute="centerX" id="ys9-YZ-CMH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RRV-CK-EI8"/>
@@ -201,6 +203,7 @@
                         <outlet property="nameLabel" destination="QoM-1p-0AS" id="8UF-NC-B5c"/>
                         <outlet property="profileImageContainerView" destination="h0q-F5-DEO" id="dno-lZ-HJ0"/>
                         <outlet property="profileImageView" destination="Vu4-N2-Vn0" id="bCd-hJ-umP"/>
+                        <outlet property="profileUrlLabel" destination="Ppe-Zm-rhi" id="Iqs-v6-UZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vr-Qa-NEH" sceneMemberID="firstResponder"/>

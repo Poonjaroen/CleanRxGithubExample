@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var profileImageContainerView: UIView?
   @IBOutlet weak var profileImageView: UIImageView?
+  @IBOutlet weak var profileUrlLabel: UILabel?
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var logoutButton: UIBarButtonItem?
   @IBOutlet weak var activityIndcatorContainerView: UIView?
@@ -51,6 +52,11 @@ class ProfileViewController: UIViewController {
     if let imageView = profileImageView {
       output.profileImage.drive(imageView.rx.image)
                          .disposed(by: disposeBag)
+    }
+    
+    if let label = profileUrlLabel {
+      output.profileUrl.drive(label.rx.text)
+                       .disposed(by: disposeBag)
     }
     
     if let label = nameLabel {
@@ -97,7 +103,7 @@ class ProfileViewController: UIViewController {
                             addOnAnimations: { $0.alpha = 0 })
     }
     
-    let views = profileImageContainerView.selectWith(nameLabel) { [$0, $1] }
+    let views = profileImageContainerView.selectWith(profileUrlLabel, nameLabel) { [$0, $1, $2] }
     views?.forEach {
       $0.isHidden = false
       $0.alpha = 0
@@ -105,7 +111,7 @@ class ProfileViewController: UIViewController {
     UIView.animate(withDuration: 0.4,
                    delay: 0.4,
                    animations: {
-      views?.forEach { $0.alpha = 1 }
-    })
+                     views?.forEach { $0.alpha = 1 }
+                   })
   }
 }
