@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
   
   // MARK: - Outlets
   
+  @IBOutlet weak var profileImageContainerView: UIView?
   @IBOutlet weak var profileImageView: UIImageView?
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var logoutButton: UIBarButtonItem?
@@ -25,8 +26,27 @@ class ProfileViewController: UIViewController {
   // MARK: - Cycles
   
   override func viewDidLoad() {
+    setupUI()
     super.viewDidLoad()
     _ = ensureViewModel().subscribe(onSuccess: { [weak self] in self?.rxBinding() })
+  }
+  
+  private func setupUI() {
+    profileImageView.flatMap {
+      let radius = $0.frame.size.width / 2
+      $0.layer.cornerRadius = radius
+      $0.layer.masksToBounds = true
+    }
+  
+    profileImageContainerView.flatMap {
+      let radius = $0.frame.size.width / 2
+      $0.layer.cornerRadius = radius
+      $0.layer.shadowColor = UIColor.black.cgColor
+      $0.layer.masksToBounds = false
+      $0.layer.shadowOffset = .init(width: 0, height: 8)
+      $0.layer.shadowOpacity = 0.2
+      $0.layer.shadowRadius = 4
+    }
   }
   
   func rxBinding() {
