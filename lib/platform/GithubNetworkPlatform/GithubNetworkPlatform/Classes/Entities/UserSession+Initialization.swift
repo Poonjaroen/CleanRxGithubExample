@@ -7,8 +7,7 @@ import GithubDomain
 import GithubNetwork
 
 extension UserSession {
-  init(loginResponse: LoginResponse) throws {
-    let username = ""
+  init(loginResponse: LoginResponse, username: String) throws {
     let refreshToken = ""
     if let accessToken = loginResponse.token {
       self.init(username: username, accessToken: accessToken, refreshToken: refreshToken)

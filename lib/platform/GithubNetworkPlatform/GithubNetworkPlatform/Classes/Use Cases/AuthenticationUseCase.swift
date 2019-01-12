@@ -71,14 +71,16 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
              scopes: [String] = ["public_repo"],
              note: String? = nil) -> Single<UserSession> {
     return loginResponse(username: username, password: password, scopes: scopes, note: note)
+      .map { ($0, username, password) }
       .do(onSuccess: {
-        AuthenticationUseCase.usernameCache = username
-        AuthenticationUseCase.passwordCache = password
-        AuthenticationUseCase.loginResponseCache = $0
+        AuthenticationUseCase.loginResponseCache = $0.0
+        AuthenticationUseCase.usernameCache = $0.1
+        AuthenticationUseCase.passwordCache = $0.2
       }, onError: { _ in
         AuthenticationUseCase.clearCaches()
       })
-      .map(UserSession.init(loginResponse:))
+      .map { ($0.0, $0.1) }
+      .map(UserSession.init(loginResponse:username:))
       .do(onSuccess: { AuthenticationUseCase.currentUserSession = $0 })
   }
   
@@ -103,8 +105,12 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   
   func recoverUserSession() -> Single<UserSession?> {
     // In memory recovering is preferred to disk recovering
-    let maybeSession = AuthenticationUseCase.currentUserSession ??
-                       AuthenticationUseCase.loginResponseCache.flatMap { try? UserSession(loginResponse: $0) }
+    let fromMemory = AuthenticationUseCase.currentUserSession
+    let fromCache = AuthenticationUseCase.loginResponseCache.selectWith(
+      AuthenticationUseCase.usernameCache,
+      selector: { try? UserSession.init(loginResponse: $0, username: $1) }
+    )
+    let maybeSession = fromMemory ?? fromCache
     maybeSession.flatMap {
       AuthenticationUseCase.currentUserSession = $0
     }
@@ -112,3 +118,10 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
   }
 }
 
+extension Optional {
+  func selectWith<T, R>(_ anotherOptional: Optional<T>, selector: (Wrapped, T) -> R?) -> R? {
+    return self.flatMap { left in
+      anotherOptional.flatMap { right in selector(left, right) }
+    }
+  }
+}

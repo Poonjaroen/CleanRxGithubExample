@@ -41,7 +41,7 @@ extension ProfileViewController {
         return UIImage(data: data)
       }
 //      let fullName = userProfile.map { "\($0.firstName) \($0.lastName)" }
-      let fullName = userProfile.map { $0?.url }
+      let fullName = userProfile.map { $0?.name }
       
       let logout = input.logoutTrigger
         .flatMap { _ in self.authenticationUseCase.logout().asDriver(onErrorJustReturn: ()) }

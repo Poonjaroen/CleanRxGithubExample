@@ -66,7 +66,7 @@
                         <outlet property="loginButton" destination="dsb-GI-Quz" id="TjS-HV-VgQ"/>
                         <outlet property="passwordTextField" destination="bpl-9s-IWh" id="46i-D2-aYi"/>
                         <outlet property="usernameTextField" destination="dYL-f1-3Nw" id="OcL-Be-od0"/>
-                        <segue destination="66S-yd-HNb" kind="show" id="mRI-yx-qmc"/>
+                        <segue destination="3US-eQ-Kzx" kind="show" id="mRI-yx-qmc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,11 +101,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-N2-Vn0">
                                 <rect key="frame" x="125" y="180" width="125" height="125"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vu4-N2-Vn0" secondAttribute="height" id="CEd-ib-nOK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoM-1p-0AS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoM-1p-0AS">
                                 <rect key="frame" x="32" y="331" width="311" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -123,6 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RRV-CK-EI8"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="XCT-4E-rYF"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="pDo-87-xYS">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="gFX-wn-JIy"/>
@@ -136,7 +138,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vr-Qa-NEH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="790"/>
+            <point key="canvasLocation" x="3137" y="507"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="47d-G6-oEs">
+            <objects>
+                <viewController id="KFe-cF-YSy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WCW-8o-9pE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jIe-lb-euU"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="xyG-ky-fQY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9t-W4-kzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3137" y="1222"/>
+        </scene>
+        <!--Home Tabs Controller-->
+        <scene sceneID="GdE-es-ddG">
+            <objects>
+                <tabBarController storyboardIdentifier="HomeTabsController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3US-eQ-Kzx" customClass="HomeTabsController" customModule="CleanRxGithub" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AX5-en-dyj">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="66S-yd-HNb" kind="relationship" relationship="viewControllers" id="FAb-HF-hcD"/>
+                        <segue destination="KFe-cF-YSy" kind="relationship" relationship="viewControllers" id="t1i-DY-1Op"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efv-Rc-hEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2082" y="790"/>
         </scene>
     </scenes>
 </document>
