@@ -11,6 +11,10 @@ import RxCocoa
 
 class ProfileViewController: UIViewController {
   
+  // MARK: - Overrides
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+  
   // MARK: - Outlets
   
   @IBOutlet weak var profileImageContainerView: UIView?
@@ -31,6 +35,7 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     setupUI()
     super.viewDidLoad()
+    tabBarController?.tabBar.toAppStyle()
     _ = ensureViewModel().subscribe(onSuccess: { [weak self] in self?.rxBinding() })
   }
   

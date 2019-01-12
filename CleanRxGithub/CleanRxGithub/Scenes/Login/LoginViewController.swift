@@ -13,6 +13,10 @@ import GithubDomain
 
 class LoginViewController: UIViewController {
   
+  // MARK: - Overrides
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+  
   // MARK: - Rx
   
   var viewModel: ViewModel!
