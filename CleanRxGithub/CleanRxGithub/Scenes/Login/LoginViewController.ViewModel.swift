@@ -18,15 +18,15 @@ extension LoginViewController {
     }
     
     struct Output {
-      var loggedIn: Driver<Void>
+      var loggedIn: Driver<UserSession>
       var loggingIn: Driver<Bool>
       var error: Driver<Error>
     }
     
-    var useCase: LoginUseCase
+    var useCase: AuthenticationUseCase
     var navigator: LoginNavigator
     
-    init(useCase: LoginUseCase,
+    init(useCase: AuthenticationUseCase,
          navigator: LoginNavigator) {
       self.useCase = useCase
       self.navigator = navigator
@@ -35,23 +35,25 @@ extension LoginViewController {
     func transform(input: Input) -> Output {
       let loggingIn = ActivityIndicator()
       let error = ErrorTracker()
-      let loggedIn = Driver
-        .combineLatest(input.username, input.password)
-        .flatMapLatest { tuple in input.loginTrigger.map { (tuple.0, tuple.1) } }
-        .flatMapLatest {
-          self.useCase.login(username: $0.0, password: $0.1)
+      let apiSession = input.loginTrigger
+        .flatMap { Driver.combineLatest(input.username, input.password) }
+        .flatMap {
+          self.useCase.login(username: $0.0, password: $0.1, scopes: ["public_repo"], note: "CleanRxGithub")
                       .trackActivity(loggingIn)
                       .trackError(error)
                       .observeOn(ConcurrentMainScheduler.instance)
                       .subscribeOn(MainScheduler.instance)
                       .asDriverOnErrorJustComplete()
         }
-        .do(onNext: { _ in self.navigator.toHome() })
+      
+      let recoveredSession = useCase.recoverUserSession().asDriver(onErrorJustReturn: nil)
+      
+      let loggedIn = recoveredSession.flatMap { $0.flatMap { .just($0) } ?? apiSession }
+                                     .do(onNext: { _ in self.navigator.toHome() })
+      
       return Output(loggedIn: loggedIn.debug("out:ok"),
                     loggingIn: loggingIn.debug("out:activity").asDriver(),
                     error: error.debug("out:error").asDriver())
     }
   }
 }
-
-

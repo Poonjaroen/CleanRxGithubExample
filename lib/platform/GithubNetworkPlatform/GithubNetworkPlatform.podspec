@@ -33,6 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'GithubNetworkPlatform/Classes/**/*'
   s.dependency 'GithubDomain', '~> 0.1.0'
   s.dependency 'GithubNetwork', '~> 0.1.0'
+  s.dependency 'ObjectMapper', '~> 3.4'
 
   # s.resource_bundles = {
   #   'GithubNetworkPlatform' => ['GithubNetworkPlatform/Assets/*.png']

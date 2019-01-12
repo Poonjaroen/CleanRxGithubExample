@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import GithubDomain
+import GithubNetworkPlatform
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  
+  static var useCaseProvider: GithubDomain.UseCaseProvider = GithubNetworkPlatform.UseCaseProvider()
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    application.setStatusBarStyle(.lightContent, animated: true)
+    UINavigationBar.appearance().toAppStyle()
+    UITabBar.appearance().toAppStyle()
     return true
   }
 
