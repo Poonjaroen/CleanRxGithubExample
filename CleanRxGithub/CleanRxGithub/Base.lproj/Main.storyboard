@@ -21,30 +21,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="YxT-Z4-fuP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYL-f1-3Nw">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYL-f1-3Nw">
                                 <rect key="frame" x="48" y="96" width="279" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iwe-AM-jkC"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpl-9s-IWh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpl-9s-IWh">
                                 <rect key="frame" x="48" y="160" width="279" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NcL-VC-DbG"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-GI-Quz">
-                                <rect key="frame" x="137.5" y="224" width="100" height="40"/>
+                                <rect key="frame" x="48" y="224" width="279" height="40"/>
                                 <color key="backgroundColor" red="0.90000000000000002" green="0.64100571470000001" blue="0.21553670799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Yms-VO-7U1"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rgr-zZ-LM0"/>
                                 </constraints>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,11 +62,13 @@
                             <constraint firstItem="ZbA-7U-5At" firstAttribute="top" secondItem="dsb-GI-Quz" secondAttribute="bottom" constant="24" id="0Up-JX-6Il"/>
                             <constraint firstItem="dYL-f1-3Nw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="1UT-6x-Ojh"/>
                             <constraint firstItem="dsb-GI-Quz" firstAttribute="top" secondItem="bpl-9s-IWh" secondAttribute="bottom" constant="24" id="2pd-Js-zdp"/>
+                            <constraint firstItem="dsb-GI-Quz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="GwJ-MJ-Ovk"/>
                             <constraint firstItem="ZbA-7U-5At" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="Lyq-Sg-7C5"/>
                             <constraint firstItem="dsb-GI-Quz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MEb-Iv-Lu8"/>
                             <constraint firstItem="bpl-9s-IWh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="O6G-SG-28j"/>
                             <constraint firstItem="dYL-f1-3Nw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="STu-uJ-lRo"/>
                             <constraint firstItem="bpl-9s-IWh" firstAttribute="top" secondItem="dYL-f1-3Nw" secondAttribute="bottom" constant="24" id="UIP-PB-8dn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dsb-GI-Quz" secondAttribute="trailing" constant="48" id="VZ3-zP-Bt0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZbA-7U-5At" secondAttribute="trailing" constant="48" id="XIV-es-62J"/>
                             <constraint firstItem="YxT-Z4-fuP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xhd-tq-H4m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YxT-Z4-fuP" secondAttribute="trailing" id="YI8-3c-wmr"/>
