@@ -2,3 +2,5 @@ materials*
 *.idea*
 *.xcuserdata
 *.xcworkspacedata
+*.xcuserstate
+*.graffle
