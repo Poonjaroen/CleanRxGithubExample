@@ -18,6 +18,8 @@ extension ProfileViewController {
       var profileImage: Driver<UIImage?>
       var fullName: Driver<String?>
       var logout: Driver<Void>
+      var loadingProfile: Driver<Bool>
+      var loggingOut: Driver<Bool>
     }
     
     var profileUseCase: ProfileUseCase
@@ -33,24 +35,32 @@ extension ProfileViewController {
     }
     
     func transform(input: Input) -> Output {
+      let loadingProfile = ActivityIndicator()
+      let loggingOut = ActivityIndicator()
+      
       let userProfile = profileUseCase.myProfile()
+                                      .trackActivity(loadingProfile)
+      
       let profileImage = userProfile.map { profile -> UIImage? in
         guard let urlString = profile?.avatarUrl,
               let url = URL(string: urlString) else { return nil }
         let data = try Data(contentsOf: url)
         return UIImage(data: data)
       }
-//      let fullName = userProfile.map { "\($0.firstName) \($0.lastName)" }
+      
       let fullName = userProfile.map { $0?.name }
       
       let logout = input.logoutTrigger
         .flatMap { _ in self.authenticationUseCase.logout().asDriver(onErrorJustReturn: ()) }
         .do(onNext: { self.navigator.toLogin() })
+        .trackActivity(loggingOut)
       
       return Output.init(
         profileImage: profileImage.asDriver(onErrorJustReturn: nil),
         fullName: fullName.asDriver(onErrorJustReturn: nil),
-        logout: logout.asDriver(onErrorJustReturn: ())
+        logout: logout.asDriver(onErrorJustReturn: ()),
+        loadingProfile: loadingProfile.asDriver(),
+        loggingOut: loggingOut.asDriver()
       )
     }
   }
