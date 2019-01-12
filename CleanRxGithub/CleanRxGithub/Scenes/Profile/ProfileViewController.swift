@@ -39,7 +39,6 @@ class ProfileViewController: UIViewController {
       container.beCircle(masks: false)
       imageView.beCircle()
       container.addShadow(pathLike: imageView, offset: .init(width: -8, height: 16))
-      
     }
     
     activityIndcatorContainerView?.beCircle()
