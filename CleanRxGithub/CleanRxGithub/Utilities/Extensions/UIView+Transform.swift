@@ -7,10 +7,10 @@ import Foundation
 import UIKit
 
 extension UIView {
-  func beCircle() {
+  func beCircle(masks: Bool = true) {
     let radius = frame.size.width / 2
     layer.cornerRadius = radius
-    layer.masksToBounds = true
+    layer.masksToBounds = masks
   }
   
   func addShadow(pathLike view: UIView,

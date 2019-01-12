@@ -35,11 +35,11 @@ class ProfileViewController: UIViewController {
   }
   
   private func setupUI() {
-    profileImageContainerView?.beCircle()
-    
-    profileImageView.flatMap {
-      $0.beCircle()
-      profileImageView?.addShadow(pathLike: $0)
+    profileImageContainerView.selectWith(profileImageView) { (container, imageView) in
+      container.beCircle(masks: false)
+      imageView.beCircle()
+      container.addShadow(pathLike: imageView, offset: .init(width: -8, height: 16))
+      
     }
     
     activityIndcatorContainerView?.beCircle()
