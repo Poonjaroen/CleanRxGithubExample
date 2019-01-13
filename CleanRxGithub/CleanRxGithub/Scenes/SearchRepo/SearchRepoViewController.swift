@@ -24,8 +24,17 @@ class SearchRepoViewController: UIViewController {
   // MARK: - Cycles
   
   override func viewDidLoad() {
+    setupUI()
     super.viewDidLoad()
     rxBinding()
+  }
+  
+  // MARK: - Setting up
+  
+  private func setupUI() {
+    tableView?.estimatedRowHeight = 100
+    tableView?.rowHeight = UITableView.automaticDimension
+    tableView?.tableFooterView = UIView()
   }
   
   func rxBinding() {
