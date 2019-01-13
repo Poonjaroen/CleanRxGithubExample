@@ -40,7 +40,7 @@ public enum Target: Moya.TargetType {
   public var task: Task {
     switch self {
     case .login(let request): return .requestJSONEncodable(request.body)
-    case .profile, .deletePAT, .searchRepo: return .requestPlain
+    case .profile, .deletePAT: return .requestPlain
     case .searchRepo(let request): return .requestParameters(parameters: request.parameters,
                                                              encoding: URLEncoding.default)
     }

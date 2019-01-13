@@ -232,7 +232,7 @@
         <!--Search Repo-->
         <scene sceneID="47d-G6-oEs">
             <objects>
-                <viewController id="KFe-cF-YSy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchRepoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KFe-cF-YSy" customClass="SearchRepoViewController" customModule="CleanRxGithub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCW-8o-9pE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,21 +240,91 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="uKf-Z9-LAI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter keyword e.g. Tetris" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mK-3w-Hkz" customClass="UnderlineTextField" customModule="CleanRxGithub" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="e9L-Pb-lsy"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="underlineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPlaceholderEnable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RhM-sf-f2K">
+                                <rect key="frame" x="0.0" y="136" width="375" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCell" rowHeight="80" id="xac-Im-h3t" customClass="RepoCell" customModule="CleanRxGithub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xac-Im-h3t" id="1re-Bw-TUi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleanRxGithubExample" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbI-VT-gNd">
+                                                    <rect key="frame" x="16" y="16" width="343" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" red="0.90000000000000002" green="0.64100571470000001" blue="0.21553670799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="myste1tainn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUy-AE-Tcf">
+                                                    <rect key="frame" x="16" y="42" width="343" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DbI-VT-gNd" firstAttribute="top" secondItem="1re-Bw-TUi" secondAttribute="top" constant="16" id="55I-tb-xbn"/>
+                                                <constraint firstItem="aUy-AE-Tcf" firstAttribute="top" secondItem="DbI-VT-gNd" secondAttribute="bottom" constant="4" id="AVk-Gc-IwC"/>
+                                                <constraint firstItem="DbI-VT-gNd" firstAttribute="leading" secondItem="1re-Bw-TUi" secondAttribute="leading" constant="16" id="Ief-Gu-YPW"/>
+                                                <constraint firstAttribute="bottom" secondItem="aUy-AE-Tcf" secondAttribute="bottom" constant="16" id="Kew-gG-aZm"/>
+                                                <constraint firstAttribute="trailing" secondItem="aUy-AE-Tcf" secondAttribute="trailing" constant="16" id="PoT-JJ-9fT"/>
+                                                <constraint firstAttribute="trailing" secondItem="DbI-VT-gNd" secondAttribute="trailing" constant="16" id="aMD-km-aGj"/>
+                                                <constraint firstItem="aUy-AE-Tcf" firstAttribute="leading" secondItem="1re-Bw-TUi" secondAttribute="leading" constant="16" id="aeZ-51-cLL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="aUy-AE-Tcf" id="g21-t6-9Z6"/>
+                                            <outlet property="titleLabel" destination="DbI-VT-gNd" id="hCF-FH-avk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RhM-sf-f2K" secondAttribute="bottom" id="1NV-KG-cww"/>
                             <constraint firstItem="uKf-Z9-LAI" firstAttribute="leading" secondItem="WCW-8o-9pE" secondAttribute="leading" id="DoY-2X-8QI"/>
+                            <constraint firstItem="RhM-sf-f2K" firstAttribute="top" secondItem="3mK-3w-Hkz" secondAttribute="bottom" constant="16" id="FXS-5e-8sW"/>
                             <constraint firstItem="uKf-Z9-LAI" firstAttribute="top" secondItem="WCW-8o-9pE" secondAttribute="top" id="KOH-p4-WXi"/>
+                            <constraint firstItem="RhM-sf-f2K" firstAttribute="leading" secondItem="jIe-lb-euU" secondAttribute="leading" id="MCe-Hc-fRt"/>
+                            <constraint firstItem="3mK-3w-Hkz" firstAttribute="top" secondItem="jIe-lb-euU" secondAttribute="top" constant="16" id="Ne6-cd-baW"/>
+                            <constraint firstAttribute="trailing" secondItem="3mK-3w-Hkz" secondAttribute="trailing" constant="16" id="P9B-7f-uJW"/>
                             <constraint firstItem="uKf-Z9-LAI" firstAttribute="bottom" secondItem="WCW-8o-9pE" secondAttribute="bottom" id="P9D-h1-DHi"/>
+                            <constraint firstItem="3mK-3w-Hkz" firstAttribute="leading" secondItem="WCW-8o-9pE" secondAttribute="leading" constant="16" id="cxr-j4-sYf"/>
+                            <constraint firstItem="jIe-lb-euU" firstAttribute="trailing" secondItem="RhM-sf-f2K" secondAttribute="trailing" id="dNX-MR-PQE"/>
                             <constraint firstItem="jIe-lb-euU" firstAttribute="trailing" secondItem="uKf-Z9-LAI" secondAttribute="trailing" id="orV-rm-rHG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jIe-lb-euU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search Repo" id="3KY-IK-MPX"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="3mK-3w-Hkz" id="PLn-hl-Ggm"/>
+                        <outlet property="tableView" destination="RhM-sf-f2K" id="kxJ-AT-gtQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9t-W4-kzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4076" y="1221.1394302848576"/>
+            <point key="canvasLocation" x="4076" y="1220.2398800599701"/>
         </scene>
         <!--Home Tabs Controller-->
         <scene sceneID="GdE-es-ddG">
@@ -262,6 +332,7 @@
                 <tabBarController storyboardIdentifier="HomeTabsController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3US-eQ-Kzx" customClass="HomeTabsController" customModule="CleanRxGithub" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AX5-en-dyj">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.037826120853424072" green="0.33866035938262939" blue="0.6085658073425293" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
