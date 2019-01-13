@@ -15,11 +15,11 @@ extension RepoOwner: ImmutableMappable {
   public mutating func mapping(map: Map) {
     login <- map["login"]
     id <- map["id"]
-    nodeId <- map["nodeId"]
-    avatarUrl <- map["avatarUrl"]
-    gravatarId <- map["gravatarId"]
+    nodeId <- map["node_id"]
+    avatarUrl <- map["avatar_url"]
+    gravatarId <- map["gravatar_id"]
     url <- map["url"]
-    receivedEventsUrl <- map["receivedEventsUrl"]
+    receivedEventsUrl <- map["received_events_url"]
     type <- map["type"]
   }
 }

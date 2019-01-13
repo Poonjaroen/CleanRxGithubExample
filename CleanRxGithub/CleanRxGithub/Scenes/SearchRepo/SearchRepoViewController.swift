@@ -48,6 +48,7 @@ class SearchRepoViewController: UIViewController {
                                             cellType: RepoCell.self)) { (row, model, cell) in
         cell.repoName = model.fullName
         cell.author = model.owner?.login
+        cell.authorAvatarUrl = model.owner?.avatarUrl
       }
     })
   }
@@ -68,4 +69,5 @@ class SearchRepoViewController: UIViewController {
         return
       }
   }
+  
 }
