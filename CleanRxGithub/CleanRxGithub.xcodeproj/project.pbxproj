@@ -21,12 +21,15 @@
 		25499A446924A82BB1DF745A /* ApplicationSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254995DF47AA899FF74BDD8B /* ApplicationSpecific.swift */; };
 		25499A8F59C9176A82A4D40C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499E133F71EBE5CA808F4C /* Reusable.swift */; };
 		25499ADD6FFD7C92C6B120A6 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499A8A24EEE0D39C90D78C /* UIView+Transform.swift */; };
+		25499B7913C8D66355A53DC8 /* SearchRepoViewController.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549943040D60C29956AC2FE /* SearchRepoViewController.ViewModel.swift */; };
 		25499BC427231EB408FDE596 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499BAC9081429162E07B3B /* ActivityIndicator.swift */; };
 		25499D20F4673C18DAEF9CCC /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499FBC1DB89A843D4487CA /* MapExtensions.swift */; };
 		25499DDB04A18E5B6CE96A80 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254990E26B894C5D514432C7 /* UnderlineTextField.swift */; };
 		25499DFC1EE32B52C670AC89 /* HomeTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499FB04C908B450D519DC1 /* HomeTabsController.swift */; };
 		25499E065D47D519A39190F2 /* LoginViewController.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499E215E8DB93F465036E9 /* LoginViewController.ViewModel.swift */; };
+		25499E3138C8CE1B0B188934 /* SearchRepoNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254999F4246C5AE9B3DFF333 /* SearchRepoNavigator.swift */; };
 		25499E40480F1CFB7DCE9BFB /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254997F4C767B13316158F96 /* Observable+Ext.swift */; };
+		25499EC540E9435416CB719A /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549934686FDE6FEA135596F /* RepoCell.swift */; };
 		4C726D604758D52017ADCA2F /* Pods_CleanRxGithub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41573ECA2F50E54C68752138 /* Pods_CleanRxGithub.framework */; };
 		E142630B21CE8FAD00751C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142630A21CE8FAD00751C16 /* AppDelegate.swift */; };
 		E142631021CE8FAD00751C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E142630E21CE8FAD00751C16 /* Main.storyboard */; };
@@ -37,7 +40,9 @@
 /* Begin PBXFileReference section */
 		2549906A9C14DA515E5E87EB /* ProfileNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
 		254990E26B894C5D514432C7 /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
+		2549934686FDE6FEA135596F /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		2549934C361545ABEDE060E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2549943040D60C29956AC2FE /* SearchRepoViewController.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepoViewController.ViewModel.swift; sourceTree = "<group>"; };
 		2549945F4882896E58A3252C /* UIView+Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Coordinate.swift"; sourceTree = "<group>"; };
 		25499502164FCD0658E0AB14 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		254995C98CB204ACC9A9EFE3 /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		254996C603C1EED3F1CAB40F /* ProfileVewController.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVewController.ViewModel.swift; sourceTree = "<group>"; };
 		254997BF1E8DC928FA5E1F9A /* LoginNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
 		254997F4C767B13316158F96 /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
+		254999F4246C5AE9B3DFF333 /* SearchRepoNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepoNavigator.swift; sourceTree = "<group>"; };
 		25499A8A24EEE0D39C90D78C /* UIView+Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
 		25499BAC9081429162E07B3B /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		25499C9116B8255645FD6489 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				25499E577D3C8A9214E6B0B3 /* SearchRepoViewController.swift */,
+				2549943040D60C29956AC2FE /* SearchRepoViewController.ViewModel.swift */,
+				254999F4246C5AE9B3DFF333 /* SearchRepoNavigator.swift */,
+				2549934686FDE6FEA135596F /* RepoCell.swift */,
 			);
 			path = SearchRepo;
 			sourceTree = "<group>";
@@ -376,6 +385,9 @@
 				254994C03FC0685539E6B4E0 /* UIColor+Conversion.swift in Sources */,
 				25499A446924A82BB1DF745A /* ApplicationSpecific.swift in Sources */,
 				25499DDB04A18E5B6CE96A80 /* UnderlineTextField.swift in Sources */,
+				25499B7913C8D66355A53DC8 /* SearchRepoViewController.ViewModel.swift in Sources */,
+				25499E3138C8CE1B0B188934 /* SearchRepoNavigator.swift in Sources */,
+				25499EC540E9435416CB719A /* RepoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

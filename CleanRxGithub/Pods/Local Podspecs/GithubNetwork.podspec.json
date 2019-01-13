@@ -20,6 +20,9 @@
   },
   "source_files": "GithubNetwork/Classes/**/*",
   "dependencies": {
+    "GithubDomain": [
+
+    ],
     "Moya/RxSwift": [
       "~> 12.0"
     ]

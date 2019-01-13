@@ -8,4 +8,6 @@ public protocol UseCaseProvider {
   func makeAuthenticationUseCase() -> AuthenticationUseCase
   
   func makeProfileUseCase(session: UserSession) -> ProfileUseCase
+  
+  func makeRepoUseCase(session: UserSession) -> RepoUseCase
 }

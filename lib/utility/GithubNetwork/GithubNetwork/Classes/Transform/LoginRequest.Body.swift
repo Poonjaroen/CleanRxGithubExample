@@ -3,8 +3,13 @@
 //
 
 import Foundation
+import GithubDomain
 
 extension LoginRequest {
+  var body: Body {
+    return Body.init(scopes: scopes, note: note)
+  }
+  
   struct Body: Encodable {
     var scopes: [String]
     var note: String?

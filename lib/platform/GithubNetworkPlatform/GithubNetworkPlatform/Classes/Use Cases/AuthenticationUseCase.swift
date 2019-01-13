@@ -61,7 +61,7 @@ final class AuthenticationUseCase: GithubDomain.AuthenticationUseCase {
     } else {
       return network.rx
         .request(.login(request: LoginRequest(username: username, password: password, scopes: scopes, note: note)))
-        .flatMap { Single.justOrEmpty($0.toModel(LoginResponse.self)) }
+        .flatMap { Single.justOrEmpty(try? $0.toModel(LoginResponse.self)) }
     }
   }
   

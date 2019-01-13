@@ -28,6 +28,6 @@ public class ProfileUseCase: GithubDomain.ProfileUseCase {
   
   public func userProfile(username: String) -> Single<UserProfile?> {
     return network.rx.request(.profile(username: username))
-                     .map { $0.toModel(UserProfile.self) }
+                     .map { try $0.toModel(UserProfile.self) }
   }
 }
