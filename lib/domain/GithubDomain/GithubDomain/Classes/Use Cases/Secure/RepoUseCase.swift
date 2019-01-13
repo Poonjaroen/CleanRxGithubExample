@@ -3,9 +3,12 @@
 //
 
 import Foundation
+import RxSwift
 
 public protocol RepoUseCase {
-  func myRepo() -> Single<[SearchRepoResponse]>
+  init(session: UserSession)
   
-  func search(request: SearchRepoRequest) -> Single<[SearchRepoResponse]>
+  func myRepo() -> Single<SearchRepoResponse>
+  
+  func search(request: SearchRepoRequest) -> Single<SearchRepoResponse>
 }

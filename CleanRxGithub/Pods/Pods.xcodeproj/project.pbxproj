@@ -67,6 +67,7 @@
 		23B996D3F4D90305A88FD252BDF74E96 /* NSSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF37FE22BD9D08E30C9CC3A6F90C14 /* NSSlider+Rx.swift */; };
 		2451167BD60594FC368D9F95806A50BB /* ObservableType+PrimitiveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D615CDFC13D34E90120138A912A90 /* ObservableType+PrimitiveSequence.swift */; };
 		2484BD623103DABCFA164368ED37D596 /* TakeWhile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A013E77EDABB169E6BC55E81B14B21 /* TakeWhile.swift */; };
+		25499119CBC2ADEE82FC319E /* RepoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254997ABC1FF398C87DA966B /* RepoUseCase.swift */; };
 		2664DE3592F5C95D20CB605ED7CD8B8E /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A870DD15A143F3E50EE19A38CF4E027 /* ObjectMapper-dummy.m */; };
 		26C02816E0B54C4EAF4DFE42F72F03F5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C416A757140F8FDCB89D87AEE42680D3 /* Result.framework */; };
 		2709EE6BC15294F1F3D90D1C20D81AFE /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFF413EA2783C6BFE78043EE8CBC4C /* Switch.swift */; };
@@ -754,6 +755,7 @@
 		23D56CBC67D00FF2A94940456FD32541 /* Pods_CleanRxGithub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CleanRxGithub.framework; path = "Pods-CleanRxGithub.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FED2910FF569E7E87481BCFD4E5637 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Rx.swift"; path = "Sources/RxMoya/MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
 		24931256ED14E61F5918960C84BFAF79 /* RxWebViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxWebViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxWebViewDelegateProxy.swift; sourceTree = "<group>"; };
+		254997ABC1FF398C87DA966B /* RepoUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoUseCase.swift; sourceTree = "<group>"; };
 		2583F8E1C0E8D30B38FBB9346788A115 /* UseCaseProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		2690D0896CF087A9240997AF8404CD7F /* InvocableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableType.swift; path = RxSwift/Schedulers/Internal/InvocableType.swift; sourceTree = "<group>"; };
 		28840D36BD6E12F695283199A5116B60 /* LoginRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -1863,6 +1865,7 @@
 				3646A713F9C8E3B4A749B837AC6FF471 /* AuthenticationUseCase.swift */,
 				8803BBD5DFDCB26E33A7964A7CFA16D4 /* ProfileUseCase.swift */,
 				2583F8E1C0E8D30B38FBB9346788A115 /* UseCaseProvider.swift */,
+				254997ABC1FF398C87DA966B /* RepoUseCase.swift */,
 			);
 			name = "Use Cases";
 			path = "GithubNetworkPlatform/Classes/Use Cases";
@@ -2847,6 +2850,7 @@
 				DFF30D62459CB933603117EADC7DA309 /* UseCaseProvider.swift in Sources */,
 				AD2780F505F4FF1F69185F5B2F4A13E2 /* UserProfile+Mappable.swift in Sources */,
 				F61281A742899BD2639B085DFE9B6590 /* UserSession+Initialization.swift in Sources */,
+				25499119CBC2ADEE82FC319E /* RepoUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
