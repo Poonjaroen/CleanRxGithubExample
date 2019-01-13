@@ -9,13 +9,12 @@ import ObjectMapper
 import GithubDomain
 
 extension Response {
-  func toModel<T: BaseMappable>(_ type: T.Type) -> T? {
-    do {
-      guard let string = try jsonString() else { return nil }
-      return type.init(JSONString: string)
-    } catch {
-      return nil
+  func toModel<T: BaseMappable>(_ type: T.Type) throws -> T {
+    guard let string = try jsonString(),
+          let object = type.init(JSONString: string) else {
+      throw InternalError()
     }
+    return object
   }
   
   func toModels<T: BaseMappable>(_ type: T.Type) -> [T]? {

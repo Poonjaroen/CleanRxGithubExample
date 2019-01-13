@@ -4,7 +4,6 @@
 
 import Foundation
 import GithubDomain
-import GithubNetwork
 
 extension UserSession {
   init(loginResponse: LoginResponse, username: String) throws {

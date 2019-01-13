@@ -10,12 +10,6 @@ public struct LoginRequest {
   public var scopes: [String]
   public var note: String?
   
-  // MARK: - Computed variables
-  
-  var body: Body {
-    return Body.init(scopes: scopes, note: note)
-  }
-  
   // MARK: - Life cycles
   
   public init(username: String,
