@@ -12,14 +12,26 @@ www    wwwwwwww    www  eeeeeeeeee  lll        ccccccccccc  oooooooooooo  mm    
 ===============================================================================================================
 ===============================================================================================================
 
-
 '
 
-echo 'Checking out workshop...'
-git checkout '9-workshop';
-echo 'Done!'
+echo '
+####################################
+##### Checking out workshop... #####
+####################################
 
-echo 'Installing materials...'
+'
+git checkout '9-workshop';
+git checkout -b feature/workshop;
+git checkout master ./setup.sh;
+git checkout master ./CleanRxGithub/.gitignore;
+echo '##### Done!'
+
+echo '
+###################################
+##### Installing materials... #####
+###################################
+
+'
 cd ./CleanRxGithub; pod install; cd -;
 
 cd ./lib/domain/GithubDomain/Example; pod install; cd -;
@@ -27,6 +39,18 @@ cd ./lib/domain/GithubDomain/Example; pod install; cd -;
 cd ./lib/platform/GithubNetworkPlatform/Example; pod install; cd -;
 
 cd ./lib/utility/GithubNetwork/Example; pod install; cd -;
-echo 'Done!'
+echo '##### Done!'
 
-echo All Done!
+echo '
+################################
+##### Starting workshop... #####
+################################
+
+'
+git add .; git commit -m "Workshop start";
+
+echo '
+#####################
+##### All Done! #####
+#####################
+'
