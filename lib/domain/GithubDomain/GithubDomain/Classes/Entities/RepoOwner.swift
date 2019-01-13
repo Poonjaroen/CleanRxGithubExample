@@ -13,4 +13,6 @@ public struct RepoOwner {
   public var url: String?
   public var receivedEventsUrl: String?
   public var type: String?
+  
+  public init() {}
 }
