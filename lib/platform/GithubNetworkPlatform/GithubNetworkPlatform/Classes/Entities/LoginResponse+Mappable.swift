@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import GithubDomain
 import GithubNetwork
 import ObjectMapper
 

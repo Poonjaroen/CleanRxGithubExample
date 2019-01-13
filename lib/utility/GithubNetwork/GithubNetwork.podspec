@@ -31,6 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'GithubNetwork/Classes/**/*'
+  s.dependency 'GithubDomain'
   s.dependency 'Moya/RxSwift', '~> 12.0'
   
   # s.resource_bundles = {

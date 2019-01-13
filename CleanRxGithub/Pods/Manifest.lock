@@ -3,6 +3,7 @@ PODS:
   - GithubDomain (0.1.0):
     - RxSwift (~> 4.0)
   - GithubNetwork (0.1.0):
+    - GithubDomain
     - Moya/RxSwift (~> 12.0)
   - GithubNetworkPlatform (0.1.0):
     - GithubDomain (~> 0.1.0)
@@ -49,7 +50,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   GithubDomain: 4ad9a70bde2b6af703fecacbe09c7557df92be77
-  GithubNetwork: 3d003fd8b24bb0dd6628e4f632789a2f22b0e65f
+  GithubNetwork: 88e5493098e98c7e7db2137151f3658b1721a21c
   GithubNetworkPlatform: b5e5a9a5a7d9e6c7f6812c433b9823ecb849b1c3
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
