@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct SearchRepoRepsonse {
+public struct SearchRepoResponse {
   public var totalCount: Int = -1
   public var isIncompleteResults = false
   public var items: [Repo]
