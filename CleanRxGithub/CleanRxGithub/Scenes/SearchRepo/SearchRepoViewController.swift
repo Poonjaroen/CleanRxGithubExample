@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class SearcRepoViewController: UIViewController {
+class SearchRepoViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

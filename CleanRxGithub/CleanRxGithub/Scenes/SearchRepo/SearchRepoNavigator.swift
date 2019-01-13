@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import GithubDomain
 import UIKit
 
 protocol SearchRepoNavigator {

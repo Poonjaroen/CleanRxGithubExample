@@ -4,7 +4,6 @@
 
 import Foundation
 import GithubDomain
-import GithubNetwork
 import ObjectMapper
 
 extension LoginResponse: ImmutableMappable {
