@@ -27,7 +27,7 @@ public final class RepoUseCase: GithubDomain.RepoUseCase {
   }
   
   public func search(request: SearchRepoRequest) -> Single<SearchRepoResponse> {
-    return network.rx.request(.searchRepo(request: request))
+    return network.rx.request(.searchRepo(request: request, token: session.oauth.accessToken))
                      .map { try $0.toModel(SearchRepoResponse.self) }
   }
 }

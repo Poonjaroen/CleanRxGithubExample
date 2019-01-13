@@ -10,7 +10,7 @@ public enum Target: Moya.TargetType {
   case login(request: LoginRequest)
   case profile(username: String)
   case deletePAT(id: String, username: String, password: String)
-  case searchRepo(request: SearchRepoRequest)
+  case searchRepo(request: SearchRepoRequest, token: String)
   
   public var baseURL: URL {
     return URL(string: "https://api.github.com")!
@@ -41,8 +41,8 @@ public enum Target: Moya.TargetType {
     switch self {
     case .login(let request): return .requestJSONEncodable(request.body)
     case .profile, .deletePAT: return .requestPlain
-    case .searchRepo(let request): return .requestParameters(parameters: request.parameters,
-                                                             encoding: URLEncoding.default)
+    case .searchRepo(let request, _): return .requestParameters(parameters: request.parameters,
+                                                                encoding: URLEncoding.default)
     }
   }
   
@@ -52,7 +52,9 @@ public enum Target: Moya.TargetType {
       return basicAuthorizationHeaders(username: request.username, password: request.password)
     case .deletePAT(_, let username, let password):
       return basicAuthorizationHeaders(username: username, password: password)
-    case .profile, .searchRepo: return [:]
+    case .profile: return [:]
+    case .searchRepo(_, let token):
+      return self.tokenAuthorizationHeaders(token: token)
     }
   }
   
@@ -60,5 +62,9 @@ public enum Target: Moya.TargetType {
     let credentials = "\(username):\(password)"
     let base64 = credentials.data(using: .utf8)?.base64EncodedString() ?? ""
     return ["Authorization": "Basic \(base64)"]
+  }
+  
+  private func tokenAuthorizationHeaders(token: String) -> [String: String] {
+    return ["Authorization": "token \(token)"]
   }
 }

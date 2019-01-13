@@ -32,7 +32,10 @@ extension SearchRepoViewController {
         .filter { $0 != nil && $0 != "" }
         .map { $0! }
         .debounce(0.25)
-        .flatMap { self.useCase.search(request: .init(query: $0)).asDriver { _ in Driver.empty() } }
+        .flatMap {
+          self.useCase.search(request: .init(query: $0))
+                      .asDriver { _ in Driver.empty() }
+        }
         .map { $0.items }
       return Output(repos: repos)
     }
