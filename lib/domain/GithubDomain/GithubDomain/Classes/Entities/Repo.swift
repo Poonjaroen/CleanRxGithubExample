@@ -28,4 +28,6 @@ public struct Repo {
   public var masterBranch: String?
   public var defaultBranch: String?
   public var score: String?
+  
+  public init() {}
 }

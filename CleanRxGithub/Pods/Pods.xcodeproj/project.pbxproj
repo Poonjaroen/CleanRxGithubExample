@@ -71,6 +71,7 @@
 		23B996D3F4D90305A88FD252BDF74E96 /* NSSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF37FE22BD9D08E30C9CC3A6F90C14 /* NSSlider+Rx.swift */; };
 		2451167BD60594FC368D9F95806A50BB /* ObservableType+PrimitiveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D615CDFC13D34E90120138A912A90 /* ObservableType+PrimitiveSequence.swift */; };
 		2484BD623103DABCFA164368ED37D596 /* TakeWhile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A013E77EDABB169E6BC55E81B14B21 /* TakeWhile.swift */; };
+		2549925578B0CAAA467D59D1 /* Repo+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2549936F8F7D3EA0B54D93FC /* Repo+Mappable.swift */; };
 		257AB3FE00705F1F16AB6CDC2D112855 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85001DA2D5985C7496F675B58C4FEA3F /* NSDecimalNumberTransform.swift */; };
 		2709EE6BC15294F1F3D90D1C20D81AFE /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFF413EA2783C6BFE78043EE8CBC4C /* Switch.swift */; };
 		271025ABB25AA5D80D6F2DA21AFADDA0 /* Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AA16E6F8B929278D51C9B9A6ED25BE /* Single.swift */; };
@@ -753,6 +754,7 @@
 		23D56CBC67D00FF2A94940456FD32541 /* Pods_CleanRxGithub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CleanRxGithub.framework; path = "Pods-CleanRxGithub.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FED2910FF569E7E87481BCFD4E5637 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Rx.swift"; path = "Sources/RxMoya/MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
 		24931256ED14E61F5918960C84BFAF79 /* RxWebViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxWebViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxWebViewDelegateProxy.swift; sourceTree = "<group>"; };
+		2549936F8F7D3EA0B54D93FC /* Repo+Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repo+Mappable.swift"; sourceTree = "<group>"; };
 		2690D0896CF087A9240997AF8404CD7F /* InvocableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableType.swift; path = RxSwift/Schedulers/Internal/InvocableType.swift; sourceTree = "<group>"; };
 		28840D36BD6E12F695283199A5116B60 /* LoginRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		28A2A1BEB5E4FE2572247AF83FABBB4C /* UISwitch+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISwitch+Rx.swift"; path = "RxCocoa/iOS/UISwitch+Rx.swift"; sourceTree = "<group>"; };
@@ -1310,6 +1312,7 @@
 				A517A8970F34041936763EB25F0733EE /* SearchRepoResponse+Mappable.swift */,
 				BE2A906F7A690204EBE01BF7FDA3BECD /* UserProfile+Mappable.swift */,
 				FC5DB5E25CF0E2262AEC8B6DBA805915 /* UserSession+Initialization.swift */,
+				2549936F8F7D3EA0B54D93FC /* Repo+Mappable.swift */,
 			);
 			name = Entities;
 			path = GithubNetworkPlatform/Classes/Entities;
@@ -2656,6 +2659,7 @@
 				47E67BACD06EB21D54268DCC25DBC055 /* UseCaseProvider.swift in Sources */,
 				8535E949065532AAF890CB42E1735CFB /* UserProfile+Mappable.swift in Sources */,
 				2EA3D16EAA9819CC203396A75976674C /* UserSession+Initialization.swift in Sources */,
+				2549925578B0CAAA467D59D1 /* Repo+Mappable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
