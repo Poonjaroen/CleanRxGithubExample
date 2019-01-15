@@ -27,7 +27,7 @@ function notify () {
 function warn () {
   text=$1; len=$((${#text})) line=""
   for i in `seq 1 $len`; do line=$line"-"; done;
-  printf "${yellow}$text\n$line\n${nc}"
+  printf "${yellow}$text\n${yellow}$line\n${nc}"
 }
 
 function fin () {
@@ -43,6 +43,12 @@ fi
 if [[ `which curl` != *"curl"* ]]; then
   warn "It seems that you don't have CURL installed, installing...\n"
   brew install curl;
+fi
+
+if [[ `which pod` != *"poddd"* ]]; then
+  warn "It seems that you don't have ${light_red}cocoapods${nc} installed, installing...\n"
+  printf "${light_green} installing ${light_red}cocoapods${nc}${light_green} required elevated rights please provide\n${nc}"
+  sudo gem install cocoapods
 fi
 
 fin
@@ -132,7 +138,6 @@ clone_and_checkout 'hint'
 
 notify "Starting workshop..."
 
-open "https://github.com/$user/CleanRxGithubExample.git";
 
 notify 'All Done!'
 
@@ -140,5 +145,6 @@ sleep 2s;
 
 open ./cleanrx-workshop/CleanRxGithub/CleanRxGithub.xcworkspace;
 open ./cleanrx-hint/CleanRxGithub/CleanRxGithub.xcworkspace;
+open "https://github.com/$user/CleanRxGithubExample.git";
 
 cd ./cleanrx-workshop;
