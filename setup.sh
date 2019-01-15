@@ -36,17 +36,17 @@ function fin () {
 
 notify 'Checking required tools...';
 if [[ `which brew` != *"brew"* ]]; then
-  warn "It seems that you don't have Homebrew installed, installing...\n"
+  warn "It seems that you don't have Homebrew installed, installing..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
 
 if [[ `which curl` != *"curl"* ]]; then
-  warn "It seems that you don't have CURL installed, installing...\n"
+  warn "It seems that you don't have CURL installed, installing..."
   brew install curl;
 fi
 
 if [[ `which pod` != *"poddd"* ]]; then
-  warn "It seems that you don't have ${light_red}cocoapods${nc} installed, installing...\n"
+  warn "It seems that you don't have ${light_red}cocoapods${nc} installed, installing..."
   printf "${light_green} installing ${light_red}cocoapods${nc}${light_green} required elevated rights please provide\n${nc}"
   sudo gem install cocoapods
 fi
