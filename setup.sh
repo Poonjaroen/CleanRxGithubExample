@@ -18,31 +18,43 @@ light_cyan='\033[1;36m'
 white='\033[1;37m'
 nc='\033[0m'
 
+function die () {
+  exit
+}
+
+trap die SIGINT;
+
 function notify () {
   text=$1; len=$((${#text}+12)) line=""
   for i in `seq 1 $len`; do line=$line"-"; done;
-  printf "${yellow}$line\n----- ${green}$text${yellow} -----\n$line\n\n${nc}"
+  printf "${yellow}$line\n----- ${light_green}$text${yellow} -----\n$line\n\n${nc}"
 } 
 
 function warn () {
   text=$1; len=$((${#text})) line=""
   for i in `seq 1 $len`; do line=$line"-"; done;
-  printf "${yellow}$text\n$line\n${nc}"
+  printf "${light_purple}$text\n${light_purple}$line\n${nc}"
 }
 
 function fin () {
-  printf "${yellow}-- ${green}Done!\n\n"
+  printf "${yellow}-- ${light_green}Done!\n\n"
 }
 
 notify 'Checking required tools...';
 if [[ `which brew` != *"brew"* ]]; then
-  warn "It seems that you don't have Homebrew installed, installing...\n"
+  warn "It seems that you don't have Homebrew installed, installing..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
 
 if [[ `which curl` != *"curl"* ]]; then
-  warn "It seems that you don't have CURL installed, installing...\n"
+  warn "It seems that you don't have CURL installed, installing..."
   brew install curl;
+fi
+
+if [[ `which pod` != *"pod"* ]]; then
+  warn "It seems that you don't have ${light_red}cocoapods${light_purple} installed, installing..."
+  printf "${green}installing ${light_red}cocoapods${nc}${green} required elevated rights please provide\n${nc}"
+  sudo gem install cocoapods
 fi
 
 fin
@@ -132,13 +144,14 @@ clone_and_checkout 'hint'
 
 notify "Starting workshop..."
 
-open "https://github.com/$user/CleanRxGithubExample.git";
 
-notify 'All Done!'
+notify 'All Done!, opening workshop, hint and github...'
 
 sleep 2s;
-
 open ./cleanrx-workshop/CleanRxGithub/CleanRxGithub.xcworkspace;
+sleep 4s;
 open ./cleanrx-hint/CleanRxGithub/CleanRxGithub.xcworkspace;
+sleep 2s;
+open "https://github.com/$user/CleanRxGithubExample.git";
 
 cd ./cleanrx-workshop;
