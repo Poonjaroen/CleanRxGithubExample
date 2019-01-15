@@ -19,17 +19,13 @@ white='\033[1;37m'
 nc='\033[0m'
 
 function notify () {
-  text=$1;
-  len=$((${#text}+12))
-  line=""
+  text=$1; len=$((${#text}+12)) line=""
   for i in `seq 1 $len`; do line=$line"-"; done;
   printf "${yellow}$line\n----- ${green}$text${yellow} -----\n$line\n\n${nc}"
-}
+} 
 
 function warn () {
-  text=$1;
-  len=$((${#text}))
-  line=""
+  text=$1; len=$((${#text})) line=""
   for i in `seq 1 $len`; do line=$line"-"; done;
   printf "${yellow}$text\n$line\n${nc}"
 }
@@ -40,12 +36,12 @@ function fin () {
 
 notify 'Checking required tools...';
 if [[ `which brew` != *"brew"* ]]; then
-  printf "It seems that you don't have Homebrew installed, installing...\n"
+  warn "It seems that you don't have Homebrew installed, installing...\n"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
 
 if [[ `which curl` != *"curl"* ]]; then
-  printf "It seems that you don't have CURL installed, installing..."
+  warn "It seems that you don't have CURL installed, installing...\n"
   brew install curl;
 fi
 
@@ -53,17 +49,13 @@ fin
 
 
 printf "
-${green}wwww      wwww      wwww  ${blue}eeeeeeeeee  ${red}lll        ${orange}ccccccccccc  ${light_purple}oooooooooooo  ${cyan}mmm           mmm  ${blue}eeeeeeeeee  ${white}!!!  !!!
-${green} www    wwwwwwww    www   ${blue}eeeeeeeeee  ${red}lll        ${orange}ccccccccccc  ${light_purple}oooooooooooo  ${cyan}mmmm         mmmm  ${blue}eeeeeeeeee  ${white}!!!  !!!
-${green}  www  wwww  wwww  www    ${blue}eee         ${red}lll        ${orange}cccc         ${light_purple}oooo    oooo  ${cyan}mmmmm       mmmmm  ${blue}eee         ${white}!!!  !!!
-${green}   ww  www    www  ww     ${blue}eeeeeeee    ${red}lll        ${orange}cccc         ${light_purple}oooo    oooo  ${cyan}mmm mm     mm mmm  ${blue}eeeeeeee    ${white}!!!  !!!
-${green}    wwwww      wwwww      ${blue}eeeeeeee    ${red}lll        ${orange}cccc         ${light_purple}oooo    oooo  ${cyan}mmm  mm   mm  mmm  ${blue}eeeeeeee    ${white}!!!  !!!
-${green}     www        www       ${blue}eee         ${red}lll        ${orange}cccc         ${light_purple}oooo    oooo  ${cyan}mmm   mm mm   mmm  ${blue}eee         ${white}        
-${green}      w          w        ${blue}eeeeeeeeee  ${red}lllllllll  ${orange}ccccccccccc  ${light_purple}oooooooooooo  ${cyan}mmm     m     mmm  ${blue}eeeeeeeeee  ${white}!!!  !!!
-${green}      w          w        ${blue}eeeeeeeeee  ${red}lllllllll  ${orange}ccccccccccc  ${light_purple}oooooooooooo  ${cyan}mmm     m     mmm  ${blue}eeeeeeeeee  ${white} !    !
-
-${light_red}===================================================================================================================
-${light_red}===================================================================================================================
+${green}WW  WW  WW ${blue}EEEEEEEE ${red}LL       ${orange}CCCCCCCCC ${light_purple}OOOOOOOO ${cyan}MM      MM ${blue}EEEEEEEE ${white}!!  !!
+${green}WW  WW  WW ${blue}EE       ${red}LL       ${orange}CC        ${light_purple}OO    OO ${cyan}MMM    MMM ${blue}EE       ${white}!!  !!
+${green}WW  WW  WW ${blue}EEEEEE   ${red}LL       ${orange}CC        ${light_purple}OO    OO ${cyan}MM MM M MM ${blue}EEEEEE   ${white}!!  !!
+${green}WW  WW  WW ${blue}EE       ${red}LL       ${orange}CC        ${light_purple}OO    OO ${cyan}MM  MM  MM ${blue}EE       ${white}
+${green}WWWWWWWWWW ${blue}EEEEEEEE ${red}LLLLLLLL ${orange}CCCCCCCCC ${light_purple}OOOOOOOO ${cyan}MM      MM ${blue}EEEEEEEE ${white}!!  !!
+${light_red}==========================================================================
+${light_red}==========================================================================
 
 ${nc}"
 
@@ -73,39 +65,80 @@ do_fork () {
   printf "${light_cyan}What's your Github.com credentials?\n${nc}";
   read -p "Username: " user;
   read -p "Password: " -s pass;
-  token=`echo -n $user:$pass | base64`
-  fork_result=`curl -X POST -H 'Authorization: Basic $token' 'https://api.github.com/repos/myste1tainn/CleanRxGithubExample/forks' 2>&1`
+  token=`echo -n $user:$pass | base64`;
+  repo="https://api.github.com/repos/myste1tainn/CleanRxGithubExample/forks";
+  echo ''
+  fork_result=`curl -X POST -H Authorization:\ Basic\ $token $repo 2>&1`
 }
 
 do_fork;
-while [[ $fork_result == "Bad" ]]; do do_fork; done;
 
- Sleep for 2 seconds waiting for the fork to complete
-sleep 2s
+if [[ $fork_result == *"Not found"* ]]; then
+  warn "Repository: $repo cannot be found, exiting..."
+  exit
+fi
+
+if [[ $fork_result == *"rate limit"* ]]; then
+  warn "It seems the endpoint have reach it's limit, please try again later, exiting..."
+  exit
+fi
+
+while [[ $fork_result == *"Bad"* ]]; do do_fork; done;
+
+# Sleep for 5 seconds waiting for the fork to complete
+sleep 5s
 
 fin
 
-notify "Checking out workshop..."
-git clone "https://github.com/repos/$user/CleanRxGithubExample";
-cd ./CleanRxGithubExample;
-git checkout '9-workshop';
-git checkout -b feature/workshop;
-git checkout master ./setup.sh;
-git checkout master ./CleanRxGithub/.gitignore;
+function install_materials () {
+  notify "Installing materials for $1..."
+  cd ./CleanRxGithub; pod install; cd -;
+  cd ./lib/domain/GithubDomain/Example; pod install; cd -;
+  cd ./lib/platform/GithubNetworkPlatform/Example; pod install; cd -;
+  cd ./lib/utility/GithubNetwork/Example; pod install; cd -;
+  fin;
+}
 
-fin
+function checkout_required_files () {
+  git checkout origin/master ./setup.sh;
+  git checkout origin/master ./CleanRxGithub/.gitignore;
+}
 
-notify "Installing materials..."
-cd ./CleanRxGithub; pod install; cd -;
+function clone_and_checkout () {
+  branch=$1
+  notify "Checking out $branch..."
+  git clone "https://github.com/$user/CleanRxGithubExample.git" "cleanrx-$branch";
 
-cd ./lib/domain/GithubDomain/Example; pod install; cd -;
+  cd "./cleanrx-$branch";
+  git fetch --all;
+  if [[ "$branch" == "workshop" ]]; then
+    git checkout '9-workshop';
+    git checkout -b feature/workshop;
+    checkout_required_files;
+  else
+    git checkout $branch;
+    checkout_required_files;
+  fi
 
-cd ./lib/platform/GithubNetworkPlatform/Example; pod install; cd -;
+  git add .; git commit -m "$branch start";
 
-cd ./lib/utility/GithubNetwork/Example; pod install; cd -;
-fin
+  fin;
+  install_materials $branch;
+  cd ..;
+}
+
+clone_and_checkout 'workshop'
+clone_and_checkout 'hint'
 
 notify "Starting workshop..."
-git add .; git commit -m "Workshop start";
+
+open "https://github.com/$user/CleanRxGithubExample.git";
 
 notify 'All Done!'
+
+sleep 2s;
+
+open ./cleanrx-workshop/CleanRxGithub/CleanRxGithub.xcworkspace;
+open ./cleanrx-hint/CleanRxGithub/CleanRxGithub.xcworkspace;
+
+cd ./cleanrx-workshop;
